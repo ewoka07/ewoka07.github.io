@@ -1,1 +1,287 @@
+/* =========================
+   GLOBAL STYLES
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b0f14;
+    color: #f4f7fb;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+header {
+    border-bottom: 1px solid #222a35;
+    background: #0b0f14;
+}
+
+nav {
+    max-width: 1100px;
+    margin: auto;
+    padding: 22px 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #aeb8c5;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    max-width: 1100px;
+    margin: auto;
+    padding: 120px 30px 100px;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.eyebrow,
+.section-label {
+    color: #5eead4;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: clamp(42px, 7vw, 76px);
+    line-height: 1.05;
+    margin-bottom: 30px;
+}
+
+.intro {
+    color: #aeb8c5;
+    font-size: 19px;
+    max-width: 700px;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.hero-buttons {
+    margin-top: 35px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.button {
+    display: inline-block;
+    padding: 13px 22px;
+
+    background: #5eead4;
+    color: #071014;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    border-radius: 6px;
+}
+
+.button:hover {
+    background: #99f6e4;
+}
+
+.button.secondary {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #394453;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 90px 30px;
+    border-top: 1px solid #222a35;
+}
+
+h2 {
+    font-size: 42px;
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+.section > p:not(.section-label) {
+    max-width: 750px;
+    color: #aeb8c5;
+    font-size: 17px;
+}
+
+
+/* =========================
+   PROJECTS
+========================= */
+
+.project-grid {
+    margin-top: 45px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.project-card {
+    padding: 30px;
+
+    border: 1px solid #293240;
+    background: #111720;
+
+    min-height: 300px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    border-color: #5eead4;
+}
+
+.project-number {
+    color: #5eead4;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.project-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.project-card p {
+    color: #aeb8c5;
+}
+
+.project-card a {
+    margin-top: auto;
+    padding-top: 25px;
+
+    color: #5eead4;
+    text-decoration: none;
+}
+
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills {
+    margin-top: 35px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skills span {
+    padding: 10px 15px;
+
+    border: 1px solid #293240;
+    border-radius: 5px;
+
+    color: #d7dee7;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+    padding-bottom: 120px;
+}
+
+.contact .button {
+    margin-top: 25px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    border-top: 1px solid #222a35;
+
+    max-width: 1100px;
+    margin: auto;
+
+    padding: 30px;
+
+    color: #687587;
+    font-size: 14px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        padding-top: 80px;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h2 {
+        font-size: 34px;
+    }
+
+}
 
