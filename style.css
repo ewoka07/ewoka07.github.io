@@ -142,19 +142,17 @@ nav {
 ========================= */
 
 .logo {
-    width: 130px;
+    width: 80px;
    
-    height: auto;
+    height: 80px;
    
-    overflow: hidden;
 }
 
 .logo img {
-    width: 100%;
+    width: 130px;
    
-    height: auto;
+    height: 150px;
    
-    object-fit: contain;
 }
 
 
