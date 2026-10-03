@@ -1,6 +1,12 @@
 /* =========================================================
    HR TECHNOLOGY PORTFOLIO
    BLACK / WHITE / BLUE PREMIUM EDITORIAL
+
+   SECTION TRANSITIONS:
+   - Single transition layer per section boundary
+   - No overlapping gradients
+   - Solid section backgrounds
+   - Soft, intentional fades
 ========================================================= */
 
 :root {
@@ -35,11 +41,11 @@
     --radius-md: 18px;
     --radius-lg: 24px;
 
-    /* =====================================================
-       SECTION TRANSITION
-    ===================================================== */
-
-    --transition-height: 95px;
+    /*
+       Transition is intentionally longer and softer.
+       Only the INCOMING section owns the transition.
+    */
+    --transition-height: 105px;
 }
 
 
@@ -207,7 +213,7 @@ nav {
     display: flex;
     align-items: center;
 
-    overflow: hidden;
+    overflow: visible;
 
     background: #ffffff;
 }
@@ -236,34 +242,12 @@ nav {
 }
 
 
-/* =========================================================
-   HERO → ABOUT TRANSITION
-========================================================= */
+/*
+   IMPORTANT:
+   There is intentionally NO hero::after.
 
-.hero::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    height: 110px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(255, 255, 255, 0) 0%,
-            rgba(255, 255, 255, 0.45) 25%,
-            rgba(255, 255, 255, 0.82) 48%,
-            #050505 100%
-        );
-
-    pointer-events: none;
-
-    z-index: 1;
-}
+   The incoming black section owns the transition.
+*/
 
 
 /* =========================================================
@@ -449,19 +433,25 @@ h1 {
 
     color: white;
 
-    padding-left: max(30px, calc((100vw - 1140px) / 2));
-    padding-right: max(30px, calc((100vw - 1140px) / 2));
+    padding-left:
+        max(
+            30px,
+            calc((100vw - 1140px) / 2)
+        );
 
-    /*
-       Extra top space allows the transition to breathe
-       without pushing the actual content down too much.
-    */
+    padding-right:
+        max(
+            30px,
+            calc((100vw - 1140px) / 2)
+        );
+
     padding-top: 145px;
 }
 
 
 /* =========================================================
-   ABOUT — HERO → BLACK TRANSITION
+   ABOUT — HERO → BLACK
+   SINGLE TRANSITION OWNER
 ========================================================= */
 
 #about::before,
@@ -476,13 +466,22 @@ h1 {
 
     height: var(--transition-height);
 
+    /*
+       Transparent at the top means the HERO remains visible.
+       Black becomes progressively stronger toward the section.
+
+       This is deliberately a simple alpha fade rather than
+       multiple semi-transparent layers.
+    */
     background:
         linear-gradient(
             to bottom,
-            #ffffff 0%,
-            rgba(255, 255, 255, 0.92) 18%,
-            rgba(255, 255, 255, 0.60) 40%,
-            rgba(255, 255, 255, 0.22) 65%,
+            rgba(5, 5, 5, 0) 0%,
+            rgba(5, 5, 5, 0.025) 12%,
+            rgba(5, 5, 5, 0.08) 28%,
+            rgba(5, 5, 5, 0.22) 48%,
+            rgba(5, 5, 5, 0.48) 68%,
+            rgba(5, 5, 5, 0.76) 84%,
             #050505 100%
         );
 
@@ -493,7 +492,7 @@ h1 {
 
 
 /* =========================================================
-   ABOUT CONTENT ABOVE TRANSITION
+   ABOUT CONTENT
 ========================================================= */
 
 #about > *,
@@ -573,17 +572,14 @@ h2 {
 
     background: #ffffff;
 
-    /*
-       Extra bottom breathing room makes the transition
-       into Skills feel gradual instead of abrupt.
-    */
     padding-top: 145px;
     padding-bottom: 145px;
 }
 
 
 /* =========================================================
-   ABOUT → PROJECTS TRANSITION
+   ABOUT → PROJECTS
+   SINGLE TRANSITION OWNER
 ========================================================= */
 
 #projects::before,
@@ -598,14 +594,25 @@ h2 {
 
     height: var(--transition-height);
 
+    /*
+       The pseudo-element sits over the white section.
+
+       Top = black.
+       Bottom = transparent.
+
+       Because it is only ONE layer, the transition cannot
+       accidentally become darker from overlapping gradients.
+    */
     background:
         linear-gradient(
             to bottom,
             #050505 0%,
-            rgba(5, 5, 5, 0.92) 18%,
-            rgba(5, 5, 5, 0.60) 40%,
-            rgba(5, 5, 5, 0.22) 65%,
-            #ffffff 100%
+            rgba(5, 5, 5, 0.76) 16%,
+            rgba(5, 5, 5, 0.48) 32%,
+            rgba(5, 5, 5, 0.22) 52%,
+            rgba(5, 5, 5, 0.08) 72%,
+            rgba(5, 5, 5, 0.025) 88%,
+            rgba(5, 5, 5, 0) 100%
         );
 
     pointer-events: none;
@@ -615,17 +622,7 @@ h2 {
 
 
 /* =========================================================
-   REMOVE OLD PROJECT GLOW
-========================================================= */
-
-#projects::after,
-.projects::after {
-    display: none;
-}
-
-
-/* =========================================================
-   PROJECT CONTENT ABOVE TRANSITION
+   PROJECT CONTENT
 ========================================================= */
 
 #projects > *,
@@ -656,7 +653,6 @@ h2 {
 
 /* =========================================================
    PROJECT CARDS
-   SAME AESTHETIC AS SKILLS
 ========================================================= */
 
 .project-card {
@@ -677,10 +673,6 @@ h2 {
 
     border-radius: var(--radius-md);
 
-    /*
-       Flat dark surface instead of glass/gradient.
-       This intentionally matches the skill pills.
-    */
     background: #0d0d0f;
 
     color: white;
@@ -697,7 +689,7 @@ h2 {
 
 
 /* =========================================================
-   REMOVE OLD CARD GLOW
+   REMOVE CARD GLOW
 ========================================================= */
 
 .project-card::before,
@@ -820,19 +812,25 @@ h2 {
     background: #050505;
     color: white;
 
-    /*
-       Extra top space allows the white → black
-       transition to sit naturally above the content.
-    */
     padding-top: 145px;
 
-    padding-left: max(30px, calc((100vw - 1140px) / 2));
-    padding-right: max(30px, calc((100vw - 1140px) / 2));
+    padding-left:
+        max(
+            30px,
+            calc((100vw - 1140px) / 2)
+        );
+
+    padding-right:
+        max(
+            30px,
+            calc((100vw - 1140px) / 2)
+        );
 }
 
 
 /* =========================================================
-   PROJECTS → SKILLS TRANSITION
+   PROJECTS → SKILLS
+   SINGLE TRANSITION OWNER
 ========================================================= */
 
 #skills::before,
@@ -850,10 +848,12 @@ h2 {
     background:
         linear-gradient(
             to bottom,
-            #ffffff 0%,
-            rgba(255, 255, 255, 0.92) 18%,
-            rgba(255, 255, 255, 0.60) 40%,
-            rgba(255, 255, 255, 0.22) 65%,
+            rgba(5, 5, 5, 0) 0%,
+            rgba(5, 5, 5, 0.025) 12%,
+            rgba(5, 5, 5, 0.08) 28%,
+            rgba(5, 5, 5, 0.22) 48%,
+            rgba(5, 5, 5, 0.48) 68%,
+            rgba(5, 5, 5, 0.76) 84%,
             #050505 100%
         );
 
@@ -864,7 +864,7 @@ h2 {
 
 
 /* =========================================================
-   SKILLS CONTENT ABOVE TRANSITION
+   SKILLS CONTENT
 ========================================================= */
 
 #skills > *,
@@ -895,7 +895,7 @@ h2 {
 
 
 /* =========================================================
-   SKILL PILLS — DARK PREMIUM
+   SKILL PILLS
 ========================================================= */
 
 .skills {
@@ -965,7 +965,8 @@ h2 {
 
 
 /* =========================================================
-   SKILLS → CONTACT TRANSITION
+   SKILLS → CONTACT
+   SINGLE TRANSITION OWNER
 ========================================================= */
 
 #contact::before,
@@ -984,10 +985,12 @@ h2 {
         linear-gradient(
             to bottom,
             #050505 0%,
-            rgba(5, 5, 5, 0.92) 18%,
-            rgba(5, 5, 5, 0.60) 40%,
-            rgba(5, 5, 5, 0.22) 65%,
-            #ffffff 100%
+            rgba(5, 5, 5, 0.76) 16%,
+            rgba(5, 5, 5, 0.48) 32%,
+            rgba(5, 5, 5, 0.22) 52%,
+            rgba(5, 5, 5, 0.08) 72%,
+            rgba(5, 5, 5, 0.025) 88%,
+            rgba(5, 5, 5, 0) 100%
         );
 
     pointer-events: none;
@@ -997,7 +1000,7 @@ h2 {
 
 
 /* =========================================================
-   CONTACT CONTENT ABOVE TRANSITION
+   CONTACT CONTENT
 ========================================================= */
 
 #contact > *,
@@ -1120,7 +1123,8 @@ footer {
 
 
 /* =========================================================
-   CONTACT → FOOTER TRANSITION
+   CONTACT → FOOTER
+   SINGLE TRANSITION OWNER
 ========================================================= */
 
 footer::before {
@@ -1137,11 +1141,13 @@ footer::before {
     background:
         linear-gradient(
             to bottom,
-            #ffffff 0%,
-            rgba(255, 255, 255, 0.92) 18%,
-            rgba(255, 255, 255, 0.60) 40%,
-            rgba(255, 255, 255, 0.22) 65%,
-            #050505 100%
+            #050505 0%,
+            rgba(5, 5, 5, 0.76) 16%,
+            rgba(5, 5, 5, 0.48) 32%,
+            rgba(5, 5, 5, 0.22) 52%,
+            rgba(5, 5, 5, 0.08) 72%,
+            rgba(5, 5, 5, 0.025) 88%,
+            rgba(5, 5, 5, 0) 100%
         );
 
     pointer-events: none;
@@ -1195,7 +1201,7 @@ button:focus-visible {
 @media (max-width: 800px) {
 
     :root {
-        --transition-height: 75px;
+        --transition-height: 82px;
     }
 
 
@@ -1238,10 +1244,6 @@ button:focus-visible {
 
         width: 65px;
         height: 3px;
-    }
-
-    .hero::after {
-        height: 85px;
     }
 
 
@@ -1348,7 +1350,7 @@ button:focus-visible {
 @media (max-width: 480px) {
 
     :root {
-        --transition-height: 60px;
+        --transition-height: 68px;
     }
 
 
@@ -1368,10 +1370,6 @@ button:focus-visible {
 
         width: 50px;
         height: 3px;
-    }
-
-    .hero::after {
-        height: 70px;
     }
 
 
