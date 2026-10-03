@@ -322,7 +322,17 @@ h1 {
     line-height: 1.75;
 }
 
-
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    #2f55ff 0%,
+    #4f7cff 45%,
+    #a8d8ef 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 /* =========================================================
    BUTTONS
 ========================================================= */
