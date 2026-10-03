@@ -681,7 +681,20 @@ h2 {
     line-height: 1.7;
 }
 
+.project-title {
+    color: #5b8cff; /* blue */
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem;
+}
 
+.project-description {
+    color: #b8beca;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0;
+    font-style: italic;
+}
 /* =========================================================
    PROJECT LINK
 ========================================================= */
