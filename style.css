@@ -1,17 +1,23 @@
 /* =========================================================
    HR TECHNOLOGY PORTFOLIO
-   BLACK / WHITE / BLUE PREMIUM EDITORIAL
+   BLACK / WHITE / BLUE EDITORIAL
+   BLUE-TINTED WHITE SECTIONS
 
-   SECTION TRANSITIONS:
-   - Single transition layer per section boundary
-   - No overlapping gradients
-   - Solid section backgrounds
-   - Soft, intentional fades
+   IMPORTANT:
+   - NO linear-gradient()
+   - NO radial-gradient()
+   - NO gradient transitions
+   - NO section fade overlays
+   - WHITE SECTIONS USE SOLID BLUE-TINTED COLORS
 ========================================================= */
 
 :root {
     --white: #ffffff;
-    --off-white: #f7f9fc;
+
+    /* Blue-tinted whites inspired by logo */
+    --white-blue: #f7faff;
+    --white-blue-2: #f2f6ff;
+    --white-blue-3: #edf3ff;
 
     --black: #050505;
     --black-soft: #0d0d0f;
@@ -20,19 +26,13 @@
     --text-light: #f5f5f5;
     --text-muted: #8d8d94;
 
+    /* Logo-inspired blue palette */
     --blue: #3155ff;
-    --violet: #7657ff;
+    --blue-light: #6f8cff;
+    --blue-mid: #4d7fe8;
     --cyan: #19b8c9;
 
-    --accent-gradient:
-        linear-gradient(
-            90deg,
-            #3155ff 0%,
-            #7657ff 55%,
-            #19b8c9 100%
-        );
-
-    --border-light: rgba(0, 0, 0, 0.10);
+    --border-light: rgba(49, 85, 255, 0.13);
     --border-dark: rgba(255, 255, 255, 0.13);
 
     --shadow:
@@ -40,12 +40,6 @@
 
     --radius-md: 18px;
     --radius-lg: 24px;
-
-    /*
-       Transition is intentionally longer and softer.
-       Only the INCOMING section owns the transition.
-    */
-    --transition-height: 105px;
 }
 
 
@@ -72,7 +66,7 @@ body {
         Helvetica,
         sans-serif;
 
-    background: var(--white);
+    background: var(--white-blue);
     color: var(--text);
 
     line-height: 1.6;
@@ -166,12 +160,11 @@ nav {
     font-size: 14px;
     font-weight: 600;
 
-    transition:
-        color 0.2s ease;
+    transition: color 0.2s ease;
 }
 
 .nav-links a:hover {
-    color: #6f8cff;
+    color: var(--blue-light);
 }
 
 .nav-links a::after {
@@ -187,7 +180,7 @@ nav {
 
     border-radius: 999px;
 
-    background: var(--accent-gradient);
+    background: var(--blue);
 
     transition: width 0.25s ease;
 }
@@ -198,7 +191,7 @@ nav {
 
 
 /* =========================================================
-   HERO — WHITE
+   HERO — BLUE-TINTED WHITE
 ========================================================= */
 
 .hero {
@@ -213,9 +206,7 @@ nav {
     display: flex;
     align-items: center;
 
-    overflow: visible;
-
-    background: #ffffff;
+    background: var(--white-blue);
 }
 
 
@@ -236,18 +227,10 @@ nav {
 
     border-radius: 999px;
 
-    background: var(--accent-gradient);
+    background: var(--blue);
 
     opacity: 0.9;
 }
-
-
-/*
-   IMPORTANT:
-   There is intentionally NO hero::after.
-
-   The incoming black section owns the transition.
-*/
 
 
 /* =========================================================
@@ -391,9 +374,9 @@ h1 {
 }
 
 .button.secondary {
-    background: white;
+    background: var(--white);
     color: #050505;
-    border-color: #d5d8de;
+    border-color: #cbd5ea;
 }
 
 .button.secondary:hover {
@@ -415,7 +398,7 @@ h1 {
 
     padding: 110px 30px;
 
-    border-top: 1px solid transparent;
+    border-top: none;
 }
 
 
@@ -445,49 +428,23 @@ h1 {
             calc((100vw - 1140px) / 2)
         );
 
-    padding-top: 145px;
+    padding-top: 110px;
 }
 
 
 /* =========================================================
-   ABOUT — HERO → BLACK
-   SINGLE TRANSITION OWNER
+   COMPLETELY REMOVE TRANSITIONS
 ========================================================= */
 
 #about::before,
-.about::before {
-    content: "";
-
-    position: absolute;
-
-    top: calc(var(--transition-height) * -1);
-    left: 0;
-    right: 0;
-
-    height: var(--transition-height);
-
-    /*
-       Transparent at the top means the HERO remains visible.
-       Black becomes progressively stronger toward the section.
-
-       This is deliberately a simple alpha fade rather than
-       multiple semi-transparent layers.
-    */
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(5, 5, 5, 0) 0%,
-            rgba(5, 5, 5, 0.025) 12%,
-            rgba(5, 5, 5, 0.08) 28%,
-            rgba(5, 5, 5, 0.22) 48%,
-            rgba(5, 5, 5, 0.48) 68%,
-            rgba(5, 5, 5, 0.76) 84%,
-            #050505 100%
-        );
-
-    pointer-events: none;
-
-    z-index: 0;
+.about::before,
+#projects::before,
+.projects::before,
+#skills::before,
+.skills-section::before,
+#contact::before,
+.contact::before {
+    display: none;
 }
 
 
@@ -513,7 +470,7 @@ h1 {
 
 #about .section-label,
 .about .section-label {
-    color: #6f8cff;
+    color: var(--blue-light);
 }
 
 #about > p:not(.section-label),
@@ -563,61 +520,17 @@ h2 {
 
 
 /* =========================================================
-   PROJECTS — WHITE
+   PROJECTS — LIGHT BLUE WHITE
 ========================================================= */
 
 #projects,
 .projects {
     position: relative;
 
-    background: #ffffff;
+    background: var(--white-blue-2);
 
-    padding-top: 145px;
+    padding-top: 110px;
     padding-bottom: 145px;
-}
-
-
-/* =========================================================
-   ABOUT → PROJECTS
-   SINGLE TRANSITION OWNER
-========================================================= */
-
-#projects::before,
-.projects::before {
-    content: "";
-
-    position: absolute;
-
-    top: calc(var(--transition-height) * -1);
-    left: 0;
-    right: 0;
-
-    height: var(--transition-height);
-
-    /*
-       The pseudo-element sits over the white section.
-
-       Top = black.
-       Bottom = transparent.
-
-       Because it is only ONE layer, the transition cannot
-       accidentally become darker from overlapping gradients.
-    */
-    background:
-        linear-gradient(
-            to bottom,
-            #050505 0%,
-            rgba(5, 5, 5, 0.76) 16%,
-            rgba(5, 5, 5, 0.48) 32%,
-            rgba(5, 5, 5, 0.22) 52%,
-            rgba(5, 5, 5, 0.08) 72%,
-            rgba(5, 5, 5, 0.025) 88%,
-            rgba(5, 5, 5, 0) 100%
-        );
-
-    pointer-events: none;
-
-    z-index: 0;
 }
 
 
@@ -687,20 +600,10 @@ h2 {
         box-shadow 0.2s ease;
 }
 
-
-/* =========================================================
-   REMOVE CARD GLOW
-========================================================= */
-
 .project-card::before,
 .project-card::after {
     display: none;
 }
-
-
-/* =========================================================
-   PROJECT CARD HOVER
-========================================================= */
 
 .project-card:hover {
     transform: translateY(-5px);
@@ -780,7 +683,7 @@ h2 {
     margin-top: auto;
     padding-top: 28px;
 
-    color: #6f8cff;
+    color: var(--blue-light);
 
     text-decoration: none;
 
@@ -812,7 +715,7 @@ h2 {
     background: #050505;
     color: white;
 
-    padding-top: 145px;
+    padding-top: 110px;
 
     padding-left:
         max(
@@ -825,41 +728,6 @@ h2 {
             30px,
             calc((100vw - 1140px) / 2)
         );
-}
-
-
-/* =========================================================
-   PROJECTS → SKILLS
-   SINGLE TRANSITION OWNER
-========================================================= */
-
-#skills::before,
-.skills-section::before {
-    content: "";
-
-    position: absolute;
-
-    top: calc(var(--transition-height) * -1);
-    left: 0;
-    right: 0;
-
-    height: var(--transition-height);
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(5, 5, 5, 0) 0%,
-            rgba(5, 5, 5, 0.025) 12%,
-            rgba(5, 5, 5, 0.08) 28%,
-            rgba(5, 5, 5, 0.22) 48%,
-            rgba(5, 5, 5, 0.48) 68%,
-            rgba(5, 5, 5, 0.76) 84%,
-            #050505 100%
-        );
-
-    pointer-events: none;
-
-    z-index: 0;
 }
 
 
@@ -885,7 +753,7 @@ h2 {
 
 #skills .section-label,
 .skills-section .section-label {
-    color: #6f8cff;
+    color: var(--blue-light);
 }
 
 #skills > p:not(.section-label),
@@ -951,51 +819,16 @@ h2 {
 
 
 /* =========================================================
-   CONTACT — WHITE
+   CONTACT — BLUE-TINTED WHITE
 ========================================================= */
 
 #contact,
 .contact {
     position: relative;
 
-    background: #ffffff;
+    background: var(--white-blue-3);
 
-    padding-top: 145px;
-}
-
-
-/* =========================================================
-   SKILLS → CONTACT
-   SINGLE TRANSITION OWNER
-========================================================= */
-
-#contact::before,
-.contact::before {
-    content: "";
-
-    position: absolute;
-
-    top: calc(var(--transition-height) * -1);
-    left: 0;
-    right: 0;
-
-    height: var(--transition-height);
-
-    background:
-        linear-gradient(
-            to bottom,
-            #050505 0%,
-            rgba(5, 5, 5, 0.76) 16%,
-            rgba(5, 5, 5, 0.48) 32%,
-            rgba(5, 5, 5, 0.22) 52%,
-            rgba(5, 5, 5, 0.08) 72%,
-            rgba(5, 5, 5, 0.025) 88%,
-            rgba(5, 5, 5, 0) 100%
-        );
-
-    pointer-events: none;
-
-    z-index: 0;
+    padding-top: 110px;
 }
 
 
@@ -1029,15 +862,7 @@ h2 {
 
     border-radius: var(--radius-lg);
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.90),
-            rgba(238, 241, 255, 0.72)
-        );
-
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
+    background: #ffffff;
 
     box-shadow:
         0 25px 70px
@@ -1060,38 +885,18 @@ h2 {
 
     height: 2px;
 
-    background:
-        var(--accent-gradient);
+    background: var(--blue);
 
     opacity: 0.75;
 }
 
 
 /* =========================================================
-   CONTACT PANEL GLOW
+   NO CONTACT GLOW
 ========================================================= */
 
 .contact-panel::after {
-    content: "";
-
-    position: absolute;
-
-    width: 300px;
-    height: 300px;
-
-    right: -180px;
-    bottom: -180px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(25, 184, 201, 0.12),
-            transparent 70%
-        );
-
-    pointer-events: none;
+    display: none;
 }
 
 
@@ -1123,12 +928,6 @@ footer {
 
 
 /* =========================================================
-   CONTACT → FOOTER
-   SINGLE TRANSITION OWNER
-========================================================= */
-
-
-/* =========================================================
    FOOTER CONTENT
 ========================================================= */
 
@@ -1148,7 +947,7 @@ footer a {
 }
 
 footer a:hover {
-    color: #6f8cff;
+    color: var(--blue-light);
 }
 
 
@@ -1172,15 +971,6 @@ button:focus-visible {
 
 @media (max-width: 800px) {
 
-    :root {
-        --transition-height: 82px;
-    }
-
-
-    /* -----------------------------------------------
-       NAV
-    ----------------------------------------------- */
-
     .nav-links {
         display: none;
     }
@@ -1196,18 +986,13 @@ button:focus-visible {
         height: 55px;
     }
 
-
-    /* -----------------------------------------------
-       HERO
-    ----------------------------------------------- */
-
     .hero {
         min-height: auto;
 
         padding:
             95px
             20px
-            115px;
+            100px;
     }
 
     .hero::before {
@@ -1217,11 +1002,6 @@ button:focus-visible {
         width: 65px;
         height: 3px;
     }
-
-
-    /* -----------------------------------------------
-       TYPOGRAPHY
-    ----------------------------------------------- */
 
     h1 {
         font-size:
@@ -1239,20 +1019,10 @@ button:focus-visible {
         letter-spacing: -1.2px;
     }
 
-
-    /* -----------------------------------------------
-       SECTIONS
-    ----------------------------------------------- */
-
     .section {
         padding-top: 80px;
         padding-bottom: 80px;
     }
-
-
-    /* -----------------------------------------------
-       BLACK SECTIONS
-    ----------------------------------------------- */
 
     #about,
     .about,
@@ -1261,52 +1031,32 @@ button:focus-visible {
         padding-left: 20px;
         padding-right: 20px;
 
-        padding-top: 115px;
+        padding-top: 85px;
     }
-
-
-    /* -----------------------------------------------
-       PROJECTS
-    ----------------------------------------------- */
 
     #projects,
     .projects {
-        padding-top: 115px;
-        padding-bottom: 115px;
+        padding-top: 85px;
+        padding-bottom: 100px;
     }
 
     .project-grid {
         grid-template-columns: 1fr;
     }
 
-
-    /* -----------------------------------------------
-       BUTTONS
-    ----------------------------------------------- */
-
     .hero-buttons {
         flex-direction: column;
         align-items: flex-start;
     }
 
-
-    /* -----------------------------------------------
-       CONTACT
-    ----------------------------------------------- */
-
     #contact,
     .contact {
-        padding-top: 115px;
+        padding-top: 85px;
     }
 
     .contact-panel {
         padding: 35px;
     }
-
-
-    /* -----------------------------------------------
-       FOOTER
-    ----------------------------------------------- */
 
     footer {
         padding-left: 20px;
@@ -1321,20 +1071,11 @@ button:focus-visible {
 
 @media (max-width: 480px) {
 
-    :root {
-        --transition-height: 68px;
-    }
-
-
-    /* -----------------------------------------------
-       HERO
-    ----------------------------------------------- */
-
     .hero {
         padding:
             80px
             20px
-            100px;
+            90px;
     }
 
     .hero::before {
@@ -1344,20 +1085,10 @@ button:focus-visible {
         height: 3px;
     }
 
-
-    /* -----------------------------------------------
-       SECTIONS
-    ----------------------------------------------- */
-
     .section {
         padding-left: 20px;
         padding-right: 20px;
     }
-
-
-    /* -----------------------------------------------
-       TYPOGRAPHY
-    ----------------------------------------------- */
 
     h1 {
         font-size:
@@ -1375,15 +1106,10 @@ button:focus-visible {
         line-height: 1.7;
     }
 
-
-    /* -----------------------------------------------
-       PROJECTS
-    ----------------------------------------------- */
-
     #projects,
     .projects {
-        padding-top: 100px;
-        padding-bottom: 100px;
+        padding-top: 75px;
+        padding-bottom: 85px;
     }
 
     .project-card {
@@ -1404,14 +1130,9 @@ button:focus-visible {
         font-size: 22px;
     }
 
-
-    /* -----------------------------------------------
-       SKILLS
-    ----------------------------------------------- */
-
     #skills,
     .skills-section {
-        padding-top: 100px;
+        padding-top: 75px;
     }
 
     .skills {
@@ -1423,14 +1144,9 @@ button:focus-visible {
         font-size: 13px;
     }
 
-
-    /* -----------------------------------------------
-       CONTACT
-    ----------------------------------------------- */
-
     #contact,
     .contact {
-        padding-top: 100px;
+        padding-top: 75px;
     }
 
     .contact-panel {
