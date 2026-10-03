@@ -1127,34 +1127,6 @@ footer {
    SINGLE TRANSITION OWNER
 ========================================================= */
 
-footer::before {
-    content: "";
-
-    position: absolute;
-
-    top: calc(var(--transition-height) * -1);
-    left: 0;
-    right: 0;
-
-    height: var(--transition-height);
-
-    background:
-        linear-gradient(
-            to bottom,
-            #050505 0%,
-            rgba(5, 5, 5, 0.76) 16%,
-            rgba(5, 5, 5, 0.48) 32%,
-            rgba(5, 5, 5, 0.22) 52%,
-            rgba(5, 5, 5, 0.08) 72%,
-            rgba(5, 5, 5, 0.025) 88%,
-            rgba(5, 5, 5, 0) 100%
-        );
-
-    pointer-events: none;
-
-    z-index: 0;
-}
-
 
 /* =========================================================
    FOOTER CONTENT
