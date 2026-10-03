@@ -1,6 +1,6 @@
 /* =========================================================
    HR TECHNOLOGY PORTFOLIO
-   BLACK + WHITE EDITORIAL / GLASSMORPHISM
+   LIGHT EDITORIAL + GLASSMORPHISM
 ========================================================= */
 
 
@@ -11,98 +11,92 @@
 :root {
 
     /* -----------------------------------------------------
-       FOUNDATION
+       CORE
     ----------------------------------------------------- */
-
-    --black: #070708;
-    --black-soft: #0d0e10;
-    --black-card: #121316;
 
     --white: #ffffff;
-    --off-white: #f5f5f3;
-    --soft-white: #ededeb;
+    --off-white: #f7f8fa;
+    --surface: #ffffff;
+    --surface-soft: #f1f3f6;
 
-    --text-dark: #0c0c0d;
-    --text-dark-secondary: #4b4b4f;
-    --text-dark-muted: #77777b;
+    --black: #0a0a0b;
+    --black-soft: #17181b;
 
-    --text-light: #ffffff;
-    --text-light-secondary: rgba(255, 255, 255, 0.72);
-    --text-light-muted: rgba(255, 255, 255, 0.48);
+    --text: #101114;
+    --text-secondary: #45484f;
+    --text-muted: #6d7179;
+
+    --border: #e4e6ea;
+    --border-dark: #d5d8de;
 
 
     /* -----------------------------------------------------
-       GRADIENT COLOURS
-       NO BLUE / NO CYAN
+       ACCENT COLOURS
     ----------------------------------------------------- */
 
-    --violet: #7957ff;
-    --magenta: #c64cff;
-    --pink: #ed5ca8;
-    --orange: #ff8a45;
-    --gold: #e9bd5b;
+    --blue: #3155ff;
+    --blue-light: #eef1ff;
+
+    --violet: #7657ff;
+    --cyan: #19b8c9;
 
 
     /* -----------------------------------------------------
-       PRIMARY GRADIENT
+       ACCENT GRADIENT
     ----------------------------------------------------- */
 
     --accent-gradient:
         linear-gradient(
-            100deg,
-            #7957ff 0%,
-            #c64cff 32%,
-            #ed5ca8 58%,
-            #ff8a45 80%,
-            #e9bd5b 100%
+            90deg,
+            #3155ff 0%,
+            #7657ff 55%,
+            #19b8c9 100%
         );
 
 
     /* -----------------------------------------------------
-       DARK GLASS
+       GLASSMORPHISM
     ----------------------------------------------------- */
 
-    --dark-glass:
-        rgba(255, 255, 255, 0.055);
+    --glass:
+        rgba(255, 255, 255, 0.68);
 
-    --dark-glass-hover:
-        rgba(255, 255, 255, 0.085);
+    --glass-strong:
+        rgba(255, 255, 255, 0.84);
 
-    --dark-glass-border:
-        rgba(255, 255, 255, 0.13);
+    --glass-soft:
+        rgba(255, 255, 255, 0.54);
 
-    --dark-glass-border-hover:
-        rgba(255, 255, 255, 0.28);
+    --glass-border:
+        rgba(20, 25, 35, 0.10);
 
-
-    /* -----------------------------------------------------
-       LIGHT GLASS
-    ----------------------------------------------------- */
-
-    --light-glass:
-        rgba(255, 255, 255, 0.62);
-
-    --light-glass-hover:
-        rgba(255, 255, 255, 0.82);
-
-    --light-glass-border:
-        rgba(10, 10, 12, 0.10);
-
-    --light-glass-border-hover:
-        rgba(10, 10, 12, 0.20);
+    --glass-border-hover:
+        rgba(49, 85, 255, 0.28);
 
 
     /* -----------------------------------------------------
        SHADOWS
     ----------------------------------------------------- */
 
-    --shadow-dark:
-        0 25px 70px
-        rgba(0, 0, 0, 0.38);
+    --shadow-sm:
+        0 4px 18px
+        rgba(20, 25, 35, 0.045);
 
-    --shadow-light:
-        0 22px 60px
-        rgba(0, 0, 0, 0.10);
+    --shadow-md:
+        0 14px 40px
+        rgba(20, 25, 35, 0.075);
+
+    --shadow-lg:
+        0 25px 70px
+        rgba(20, 25, 35, 0.12);
+
+    --glass-shadow:
+        0 18px 50px
+        rgba(20, 25, 35, 0.08);
+
+    --glass-shadow-hover:
+        0 28px 75px
+        rgba(20, 25, 35, 0.13);
 
 
     /* -----------------------------------------------------
@@ -111,7 +105,7 @@
 
     --radius-sm: 8px;
     --radius-md: 16px;
-    --radius-lg: 22px;
+    --radius-lg: 20px;
 }
 
 
@@ -127,11 +121,9 @@
     padding: 0;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
-
 
 body {
 
@@ -143,10 +135,10 @@ body {
         sans-serif;
 
     background:
-        var(--black);
+        var(--white);
 
     color:
-        var(--text-light);
+        var(--text);
 
     line-height:
         1.6;
@@ -163,26 +155,28 @@ body {
 
 
 /* =========================================================
-   REMOVE OLD BACKGROUND GRID / TEXTURE
+   REMOVE OLD DECORATIVE BACKGROUND
 ========================================================= */
 
 body::before,
 body::after {
 
-    content: none;
+    display:
+        none;
 
-    display: none;
+    content:
+        none;
 }
 
 
 /* =========================================================
-   SELECTION
+   TEXT SELECTION
 ========================================================= */
 
 ::selection {
 
     background:
-        #c64cff;
+        var(--blue);
 
     color:
         #ffffff;
@@ -206,16 +200,16 @@ header {
 
     border-bottom:
         1px solid
-        rgba(255, 255, 255, 0.09);
+        rgba(20, 25, 35, 0.08);
 
     background:
-        rgba(7, 7, 8, 0.86);
+        rgba(255, 255, 255, 0.88);
 
     backdrop-filter:
-        blur(20px);
+        blur(18px);
 
     -webkit-backdrop-filter:
-        blur(20px);
+        blur(18px);
 }
 
 
@@ -267,7 +261,6 @@ nav {
         center;
 }
 
-
 .logo img {
 
     display:
@@ -300,14 +293,13 @@ nav {
         34px;
 }
 
-
 .nav-links a {
 
     position:
         relative;
 
     color:
-        rgba(255, 255, 255, 0.70);
+        var(--text-secondary);
 
     text-decoration:
         none;
@@ -322,11 +314,10 @@ nav {
         color 0.2s ease;
 }
 
-
 .nav-links a:hover {
 
     color:
-        #ffffff;
+        var(--blue);
 }
 
 
@@ -358,12 +349,11 @@ nav {
         999px;
 
     background:
-        var(--accent-gradient);
+        var(--blue);
 
     transition:
         width 0.25s ease;
 }
-
 
 .nav-links a:hover::after {
 
@@ -385,13 +375,13 @@ nav {
         1200px;
 
     min-height:
-        80vh;
+        78vh;
 
     margin:
         0 auto;
 
     padding:
-        125px 30px 145px;
+        125px 30px 135px;
 
     display:
         flex;
@@ -405,8 +395,8 @@ nav {
 
 
 /* =========================================================
-   HERO GRADIENT GLOW
-   Soft, abstract and restrained
+   HERO ACCENT
+   Minimal colour detail — replaces the old rings
 ========================================================= */
 
 .hero::before {
@@ -417,77 +407,39 @@ nav {
     position:
         absolute;
 
-    width:
-        620px;
-
-    height:
-        620px;
-
     top:
-        -390px;
+        120px;
 
     right:
-        -180px;
+        30px;
+
+    width:
+        90px;
+
+    height:
+        4px;
 
     border-radius:
-        50%;
+        999px;
 
     background:
-        radial-gradient(
-            circle,
-            rgba(121, 87, 255, 0.20) 0%,
-            rgba(198, 76, 255, 0.11) 28%,
-            rgba(237, 92, 168, 0.06) 48%,
-            transparent 72%
-        );
+        var(--accent-gradient);
 
-    filter:
-        blur(25px);
-
-    pointer-events:
-        none;
+    opacity:
+        0.9;
 }
 
 
 /* =========================================================
-   HERO SECONDARY GLOW
+   REMOVE HERO DECORATION
 ========================================================= */
 
 .hero::after {
 
+    display:
+        none;
+
     content:
-        "";
-
-    position:
-        absolute;
-
-    width:
-        430px;
-
-    height:
-        430px;
-
-    right:
-        -240px;
-
-    bottom:
-        -300px;
-
-    border-radius:
-        50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255, 138, 69, 0.12),
-            rgba(233, 189, 91, 0.05) 42%,
-            transparent 72%
-        );
-
-    filter:
-        blur(30px);
-
-    pointer-events:
         none;
 }
 
@@ -510,7 +462,7 @@ nav {
 
 
 /* =========================================================
-   EYEBROW
+   EYEBROW / SECTION LABEL
 ========================================================= */
 
 .eyebrow,
@@ -529,7 +481,7 @@ nav {
         22px;
 
     color:
-        rgba(255, 255, 255, 0.68);
+        var(--blue);
 
     font-size:
         12px;
@@ -538,7 +490,7 @@ nav {
         800;
 
     letter-spacing:
-        2.4px;
+        2.2px;
 
     text-transform:
         uppercase;
@@ -546,7 +498,7 @@ nav {
 
 
 /* ---------------------------------------------------------
-   EYEBROW INDICATOR
+   LABEL DOT
 --------------------------------------------------------- */
 
 .eyebrow::before,
@@ -568,11 +520,7 @@ nav {
         50%;
 
     background:
-        var(--accent-gradient);
-
-    box-shadow:
-        0 0 15px
-        rgba(198, 76, 255, 0.35);
+        var(--blue);
 }
 
 
@@ -589,7 +537,7 @@ h1 {
         32px;
 
     color:
-        #ffffff;
+        var(--black);
 
     font-size:
         clamp(
@@ -642,16 +590,16 @@ h1 {
 
 
 /* =========================================================
-   INTRO
+   INTRODUCTION
 ========================================================= */
 
 .intro {
 
     max-width:
-        700px;
+        690px;
 
     color:
-        rgba(255, 255, 255, 0.70);
+        var(--text-secondary);
 
     font-size:
         19px;
@@ -700,20 +648,20 @@ h1 {
         50px;
 
     padding:
-        0 23px;
+        0 22px;
 
     border:
         1px solid
-        #ffffff;
+        var(--black);
 
     border-radius:
         8px;
 
     background:
-        #ffffff;
+        var(--black);
 
     color:
-        #080809;
+        #ffffff;
 
     text-decoration:
         none;
@@ -727,10 +675,9 @@ h1 {
     transition:
         transform 0.2s ease,
         background 0.2s ease,
-        color 0.2s ease,
+        border-color 0.2s ease,
         box-shadow 0.2s ease;
 }
-
 
 .button:hover {
 
@@ -738,14 +685,14 @@ h1 {
         translateY(-2px);
 
     background:
-        transparent;
+        var(--blue);
 
-    color:
-        #ffffff;
+    border-color:
+        var(--blue);
 
     box-shadow:
-        0 10px 30px
-        rgba(0, 0, 0, 0.25);
+        0 10px 25px
+        rgba(49, 85, 255, 0.18);
 }
 
 
@@ -756,14 +703,14 @@ h1 {
 .button.secondary {
 
     background:
-        rgba(255, 255, 255, 0.05);
+        rgba(255, 255, 255, 0.72);
 
     color:
-        #ffffff;
+        var(--text);
 
     border:
         1px solid
-        rgba(255, 255, 255, 0.22);
+        var(--border-dark);
 
     backdrop-filter:
         blur(12px);
@@ -772,17 +719,19 @@ h1 {
         blur(12px);
 }
 
-
 .button.secondary:hover {
 
     background:
-        rgba(255, 255, 255, 0.10);
-
-    border-color:
-        rgba(255, 255, 255, 0.45);
+        var(--white);
 
     color:
-        #ffffff;
+        var(--blue);
+
+    border-color:
+        var(--blue);
+
+    box-shadow:
+        none;
 }
 
 
@@ -795,7 +744,7 @@ button:focus-visible {
 
     outline:
         3px solid
-        rgba(198, 76, 255, 0.55);
+        rgba(49, 85, 255, 0.30);
 
     outline-offset:
         4px;
@@ -822,30 +771,7 @@ button:focus-visible {
 
     border-top:
         1px solid
-        rgba(0, 0, 0, 0.09);
-
-    color:
-        var(--text-dark);
-}
-
-
-/* =========================================================
-   ALTERNATING SECTION BACKGROUNDS
-========================================================= */
-
-/*
-   The sections themselves remain white.
-   The parent/page can use .dark-section if needed.
-*/
-
-.section.dark-section {
-
-    color:
-        #ffffff;
-
-    border-top:
-        1px solid
-        rgba(255, 255, 255, 0.09);
+        var(--border);
 }
 
 
@@ -862,7 +788,7 @@ h2 {
         25px;
 
     color:
-        var(--text-dark);
+        var(--black);
 
     font-size:
         clamp(
@@ -882,37 +808,8 @@ h2 {
 }
 
 
-/* ---------------------------------------------------------
-   DARK SECTION HEADING
---------------------------------------------------------- */
-
-.dark-section h2 {
-
-    color:
-        #ffffff;
-}
-
-
 /* =========================================================
-   SECTION LABEL
-========================================================= */
-
-.section > .section-label {
-
-    color:
-        #6a6a6f;
-}
-
-
-.dark-section > .section-label {
-
-    color:
-        rgba(255, 255, 255, 0.62);
-}
-
-
-/* =========================================================
-   SECTION BODY
+   SECTION BODY TEXT
 ========================================================= */
 
 .section > p:not(.section-label) {
@@ -921,20 +818,13 @@ h2 {
         720px;
 
     color:
-        var(--text-dark-secondary);
+        var(--text-secondary);
 
     font-size:
         17px;
 
     line-height:
         1.75;
-}
-
-
-.dark-section > p:not(.section-label) {
-
-    color:
-        rgba(255, 255, 255, 0.68);
 }
 
 
@@ -959,8 +849,7 @@ h2 {
 
 
 /* =========================================================
-   GLASS PROJECT CARDS
-   DARK / LIGHT ADAPTIVE
+   GLASSMORPHISM PROJECT CARDS
 ========================================================= */
 
 .project-card {
@@ -985,7 +874,7 @@ h2 {
 
     border:
         1px solid
-        var(--light-glass-border);
+        var(--glass-border);
 
     border-radius:
         var(--radius-md);
@@ -993,51 +882,29 @@ h2 {
     background:
         linear-gradient(
             135deg,
-            rgba(255, 255, 255, 0.68),
-            rgba(255, 255, 255, 0.40)
+            rgba(255, 255, 255, 0.82),
+            rgba(255, 255, 255, 0.52)
         );
 
     backdrop-filter:
-        blur(24px);
+        blur(22px);
 
     -webkit-backdrop-filter:
-        blur(24px);
+        blur(22px);
 
     box-shadow:
-        var(--shadow-light);
+        var(--glass-shadow);
 
     transition:
         transform 0.3s ease,
         border-color 0.3s ease,
-        background 0.3s ease,
-        box-shadow 0.3s ease;
+        box-shadow 0.3s ease,
+        background 0.3s ease;
 }
 
 
 /* =========================================================
-   DARK SECTION PROJECT CARDS
-========================================================= */
-
-.dark-section .project-card {
-
-    border:
-        1px solid
-        var(--dark-glass-border);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.075),
-            rgba(255, 255, 255, 0.025)
-        );
-
-    box-shadow:
-        var(--shadow-dark);
-}
-
-
-/* =========================================================
-   PROJECT CARD TOP HIGHLIGHT
+   PROJECT CARD — TOP GLASS HIGHLIGHT
 ========================================================= */
 
 .project-card::before {
@@ -1052,19 +919,26 @@ h2 {
         0;
 
     left:
-        10%;
+        12%;
 
     right:
-        10%;
+        12%;
 
     height:
         1px;
 
     background:
-        var(--accent-gradient);
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(49, 85, 255, 0.45),
+            rgba(118, 87, 255, 0.45),
+            rgba(25, 184, 201, 0.35),
+            transparent
+        );
 
     opacity:
-        0.45;
+        0.6;
 
     pointer-events:
         none;
@@ -1072,7 +946,7 @@ h2 {
 
 
 /* =========================================================
-   PROJECT CARD COLOUR WASH
+   PROJECT CARD — SOFT COLOUR WASH
 ========================================================= */
 
 .project-card::after {
@@ -1090,10 +964,10 @@ h2 {
         220px;
 
     top:
-        -135px;
+        -140px;
 
     right:
-        -110px;
+        -100px;
 
     border-radius:
         50%;
@@ -1101,8 +975,8 @@ h2 {
     background:
         radial-gradient(
             circle,
-            rgba(198, 76, 255, 0.10),
-            rgba(255, 138, 69, 0.04) 45%,
+            rgba(49, 85, 255, 0.10),
+            rgba(118, 87, 255, 0.04) 45%,
             transparent 72%
         );
 
@@ -1110,13 +984,13 @@ h2 {
         none;
 
     transition:
-        transform 0.45s ease,
-        opacity 0.45s ease;
+        transform 0.4s ease,
+        opacity 0.4s ease;
 }
 
 
 /* =========================================================
-   PROJECT CARD HOVER
+   PROJECT CARD — HOVER
 ========================================================= */
 
 .project-card:hover {
@@ -1125,38 +999,18 @@ h2 {
         translateY(-6px);
 
     border-color:
-        var(--light-glass-border-hover);
+        var(--glass-border-hover);
 
     background:
         linear-gradient(
             135deg,
-            rgba(255, 255, 255, 0.82),
-            rgba(255, 250, 252, 0.56)
+            rgba(255, 255, 255, 0.93),
+            rgba(248, 250, 255, 0.70)
         );
 
     box-shadow:
-        0 28px 75px
-        rgba(0, 0, 0, 0.14);
+        var(--glass-shadow-hover);
 }
-
-
-.dark-section .project-card:hover {
-
-    border-color:
-        var(--dark-glass-border-hover);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.10),
-            rgba(255, 255, 255, 0.035)
-        );
-
-    box-shadow:
-        0 30px 80px
-        rgba(0, 0, 0, 0.48);
-}
-
 
 .project-card:hover::after {
 
@@ -1178,7 +1032,7 @@ h2 {
         40px;
 
     color:
-        var(--text-dark-muted);
+        var(--text-muted);
 
     font-size:
         12px;
@@ -1188,13 +1042,6 @@ h2 {
 
     letter-spacing:
         1.5px;
-}
-
-
-.dark-section .project-number {
-
-    color:
-        rgba(255, 255, 255, 0.45);
 }
 
 
@@ -1208,7 +1055,7 @@ h2 {
         14px;
 
     color:
-        var(--text-dark);
+        var(--black);
 
     font-size:
         24px;
@@ -1224,13 +1071,6 @@ h2 {
 }
 
 
-.dark-section .project-card h3 {
-
-    color:
-        #ffffff;
-}
-
-
 /* =========================================================
    PROJECT CARD TEXT
 ========================================================= */
@@ -1238,17 +1078,10 @@ h2 {
 .project-card p {
 
     color:
-        var(--text-dark-secondary);
+        var(--text-secondary);
 
     line-height:
         1.7;
-}
-
-
-.dark-section .project-card p {
-
-    color:
-        rgba(255, 255, 255, 0.64);
 }
 
 
@@ -1265,7 +1098,7 @@ h2 {
         28px;
 
     color:
-        #8a4cff;
+        var(--blue);
 
     text-decoration:
         none;
@@ -1281,18 +1114,10 @@ h2 {
         transform 0.2s ease;
 }
 
-
-.dark-section .project-card a {
-
-    color:
-        #d19aff;
-}
-
-
 .project-card a:hover {
 
     color:
-        #ff7f54;
+        var(--violet);
 
     transform:
         translateX(4px);
@@ -1320,7 +1145,7 @@ h2 {
 
 
 /* =========================================================
-   LIGHT GLASS SKILLS
+   GLASS SKILL PILLS
 ========================================================= */
 
 .skills span {
@@ -1333,7 +1158,7 @@ h2 {
 
     border:
         1px solid
-        var(--light-glass-border);
+        rgba(20, 25, 35, 0.10);
 
     border-radius:
         999px;
@@ -1341,12 +1166,12 @@ h2 {
     background:
         linear-gradient(
             135deg,
-            rgba(255, 255, 255, 0.72),
-            rgba(245, 245, 243, 0.50)
+            rgba(255, 255, 255, 0.78),
+            rgba(245, 247, 250, 0.58)
         );
 
     color:
-        var(--text-dark-secondary);
+        var(--text-secondary);
 
     font-size:
         14px;
@@ -1356,16 +1181,16 @@ h2 {
 
     box-shadow:
         0 6px 20px
-        rgba(0, 0, 0, 0.045),
+        rgba(20, 25, 35, 0.045),
 
         inset 0 1px 0
-        rgba(255, 255, 255, 0.85);
+        rgba(255, 255, 255, 0.8);
 
     backdrop-filter:
-        blur(15px);
+        blur(14px);
 
     -webkit-backdrop-filter:
-        blur(15px);
+        blur(14px);
 
     transition:
         transform 0.2s ease,
@@ -1377,33 +1202,7 @@ h2 {
 
 
 /* =========================================================
-   DARK GLASS SKILLS
-========================================================= */
-
-.dark-section .skills span {
-
-    border:
-        1px solid
-        var(--dark-glass-border);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.075),
-            rgba(255, 255, 255, 0.025)
-        );
-
-    color:
-        rgba(255, 255, 255, 0.74);
-
-    box-shadow:
-        inset 0 1px 0
-        rgba(255, 255, 255, 0.07);
-}
-
-
-/* =========================================================
-   SKILL HIGHLIGHT
+   SKILL PILL — GLASS HIGHLIGHT
 ========================================================= */
 
 .skills span::before {
@@ -1427,7 +1226,7 @@ h2 {
         1px;
 
     background:
-        rgba(255, 255, 255, 0.85);
+        rgba(255, 255, 255, 0.9);
 
     border-radius:
         999px;
@@ -1438,7 +1237,7 @@ h2 {
 
 
 /* =========================================================
-   SKILL HOVER
+   SKILL PILL — HOVER
 ========================================================= */
 
 .skills span:hover {
@@ -1446,44 +1245,27 @@ h2 {
     transform:
         translateY(-3px);
 
-    border-color:
-        rgba(198, 76, 255, 0.30);
-
     background:
         linear-gradient(
             135deg,
-            rgba(255, 255, 255, 0.90),
-            rgba(250, 242, 255, 0.72)
+            rgba(255, 255, 255, 0.92),
+            rgba(238, 241, 255, 0.78)
         );
 
+    border-color:
+        rgba(49, 85, 255, 0.25);
+
     color:
-        #8a4cff;
+        var(--blue);
 
     box-shadow:
-        0 10px 30px
-        rgba(198, 76, 255, 0.10);
-}
-
-
-.dark-section .skills span:hover {
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.12),
-            rgba(198, 76, 255, 0.06)
-        );
-
-    border-color:
-        rgba(198, 76, 255, 0.38);
-
-    color:
-        #d19aff;
+        0 10px 28px
+        rgba(49, 85, 255, 0.10);
 }
 
 
 /* =========================================================
-   CONTACT
+   CONTACT SECTION
 ========================================================= */
 
 .contact {
@@ -1505,7 +1287,7 @@ h2 {
 
 
 /* =========================================================
-   CONTACT PANEL
+   GLASS CONTACT PANEL
 ========================================================= */
 
 .contact-panel {
@@ -1524,7 +1306,7 @@ h2 {
 
     border:
         1px solid
-        var(--dark-glass-border);
+        var(--glass-border);
 
     border-radius:
         var(--radius-lg);
@@ -1532,23 +1314,23 @@ h2 {
     background:
         linear-gradient(
             135deg,
-            rgba(255, 255, 255, 0.075),
-            rgba(255, 255, 255, 0.025)
+            rgba(255, 255, 255, 0.82),
+            rgba(245, 247, 250, 0.62)
         );
 
     backdrop-filter:
-        blur(25px);
+        blur(24px);
 
     -webkit-backdrop-filter:
-        blur(25px);
+        blur(24px);
 
     box-shadow:
-        var(--shadow-dark);
+        var(--glass-shadow);
 }
 
 
 /* =========================================================
-   CONTACT PANEL GRADIENT
+   CONTACT PANEL — ACCENT
 ========================================================= */
 
 .contact-panel::before {
@@ -1580,45 +1362,6 @@ h2 {
 
 
 /* =========================================================
-   CONTACT PANEL SOFT GLOW
-========================================================= */
-
-.contact-panel::after {
-
-    content:
-        "";
-
-    position:
-        absolute;
-
-    width:
-        300px;
-
-    height:
-        300px;
-
-    right:
-        -150px;
-
-    bottom:
-        -200px;
-
-    border-radius:
-        50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255, 138, 69, 0.10),
-            transparent 70%
-        );
-
-    pointer-events:
-        none;
-}
-
-
-/* =========================================================
    FOOTER
 ========================================================= */
 
@@ -1635,16 +1378,13 @@ footer {
 
     border-top:
         1px solid
-        rgba(255, 255, 255, 0.09);
+        var(--border);
 
     color:
-        rgba(255, 255, 255, 0.45);
+        var(--text-muted);
 
     font-size:
         13px;
-
-    background:
-        var(--black);
 }
 
 
@@ -1664,7 +1404,6 @@ footer {
         display:
             none;
     }
-
 
     nav {
 
@@ -1689,7 +1428,6 @@ footer {
             55px;
     }
 
-
     .logo img {
 
         width:
@@ -1710,27 +1448,27 @@ footer {
             auto;
 
         padding:
-            100px 20px 110px;
+            95px 20px 105px;
     }
 
 
     /* -----------------------------------------------------
-       HERO GLOW
+       HERO ACCENT
     ----------------------------------------------------- */
 
     .hero::before {
 
-        width:
-            420px;
-
-        height:
-            420px;
-
         top:
-            -260px;
+            55px;
 
         right:
-            -170px;
+            20px;
+
+        width:
+            65px;
+
+        height:
+            3px;
     }
 
 
@@ -1750,7 +1488,6 @@ footer {
         letter-spacing:
             -2.5px;
     }
-
 
     h2 {
 
@@ -1813,7 +1550,7 @@ footer {
 
 
     /* -----------------------------------------------------
-       CONTACT
+       CONTACT PANEL
     ----------------------------------------------------- */
 
     .contact-panel {
@@ -1839,6 +1576,37 @@ footer {
 
         padding:
             80px 20px 90px;
+    }
+
+
+    /* -----------------------------------------------------
+       HERO ACCENT
+    ----------------------------------------------------- */
+
+    .hero::before {
+
+        top:
+            45px;
+
+        width:
+            50px;
+
+        height:
+            3px;
+    }
+
+
+    /* -----------------------------------------------------
+       SECTIONS
+    ----------------------------------------------------- */
+
+    .section {
+
+        padding-left:
+            20px;
+
+        padding-right:
+            20px;
     }
 
 
@@ -1871,20 +1639,6 @@ footer {
 
         line-height:
             1.7;
-    }
-
-
-    /* -----------------------------------------------------
-       SECTION
-    ----------------------------------------------------- */
-
-    .section {
-
-        padding-left:
-            20px;
-
-        padding-right:
-            20px;
     }
 
 
@@ -1925,7 +1679,6 @@ footer {
         gap:
             8px;
     }
-
 
     .skills span {
 
