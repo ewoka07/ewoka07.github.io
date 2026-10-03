@@ -34,6 +34,12 @@
 
     --radius-md: 18px;
     --radius-lg: 24px;
+
+    /* =====================================================
+       SECTION TRANSITION
+    ===================================================== */
+
+    --transition-height: 95px;
 }
 
 
@@ -49,6 +55,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 76px;
 }
 
 body {
@@ -134,7 +141,7 @@ nav {
 
 
 /* =========================================================
-   NAV LINKS — WHITE
+   NAV LINKS
 ========================================================= */
 
 .nav-links {
@@ -207,7 +214,7 @@ nav {
 
 
 /* =========================================================
-   WHITE SECTION BLUE ACCENT
+   HERO BLUE ACCENT
 ========================================================= */
 
 .hero::before {
@@ -230,7 +237,7 @@ nav {
 
 
 /* =========================================================
-   HERO SOFT GRADIENT GLOW
+   HERO → ABOUT TRANSITION
 ========================================================= */
 
 .hero::after {
@@ -238,23 +245,24 @@ nav {
 
     position: absolute;
 
-    width: 500px;
-    height: 500px;
+    left: 0;
+    right: 0;
+    bottom: 0;
 
-    right: -280px;
-    bottom: -300px;
-
-    border-radius: 50%;
+    height: 110px;
 
     background:
-        radial-gradient(
-            circle,
-            rgba(49, 85, 255, 0.09),
-            rgba(118, 87, 255, 0.035) 45%,
-            transparent 70%
+        linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.45) 25%,
+            rgba(255, 255, 255, 0.82) 48%,
+            #050505 100%
         );
 
     pointer-events: none;
+
+    z-index: 1;
 }
 
 
@@ -433,6 +441,8 @@ h1 {
 
 #about,
 .about {
+    position: relative;
+
     max-width: none;
 
     background: #050505;
@@ -441,7 +451,18 @@ h1 {
 
     padding-left: max(30px, calc((100vw - 1140px) / 2));
     padding-right: max(30px, calc((100vw - 1140px) / 2));
+
+    /*
+       Extra top space allows the transition to breathe
+       without pushing the actual content down too much.
+    */
+    padding-top: 145px;
 }
+
+
+/* =========================================================
+   ABOUT — HERO → BLACK TRANSITION
+========================================================= */
 
 #about::before,
 .about::before {
@@ -449,25 +470,41 @@ h1 {
 
     position: absolute;
 
-    top: 0;
+    top: calc(var(--transition-height) * -1);
     left: 0;
     right: 0;
 
-    height: 1px;
+    height: var(--transition-height);
 
     background:
         linear-gradient(
-            90deg,
-            transparent,
-            rgba(49, 85, 255, 0.5),
-            rgba(118, 87, 255, 0.3),
-            transparent
+            to bottom,
+            #ffffff 0%,
+            rgba(255, 255, 255, 0.92) 18%,
+            rgba(255, 255, 255, 0.60) 40%,
+            rgba(255, 255, 255, 0.22) 65%,
+            #050505 100%
         );
+
+    pointer-events: none;
+
+    z-index: 0;
 }
 
 
 /* =========================================================
-   ABOUT HEADING — WHITE
+   ABOUT CONTENT ABOVE TRANSITION
+========================================================= */
+
+#about > *,
+.about > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   ABOUT HEADING
 ========================================================= */
 
 #about h2,
@@ -532,37 +569,69 @@ h2 {
 
 #projects,
 .projects {
+    position: relative;
+
     background: #ffffff;
+
+    /*
+       Extra bottom breathing room makes the transition
+       into Skills feel gradual instead of abrupt.
+    */
+    padding-top: 145px;
+    padding-bottom: 145px;
 }
 
 
 /* =========================================================
-   PROJECT WHITE SECTION ACCENT
+   ABOUT → PROJECTS TRANSITION
 ========================================================= */
 
-#projects::after,
-.projects::after {
+#projects::before,
+.projects::before {
     content: "";
 
     position: absolute;
 
-    width: 400px;
-    height: 400px;
+    top: calc(var(--transition-height) * -1);
+    left: 0;
+    right: 0;
 
-    right: -250px;
-    top: 80px;
-
-    border-radius: 50%;
+    height: var(--transition-height);
 
     background:
-        radial-gradient(
-            circle,
-            rgba(49, 85, 255, 0.07),
-            rgba(118, 87, 255, 0.025) 45%,
-            transparent 70%
+        linear-gradient(
+            to bottom,
+            #050505 0%,
+            rgba(5, 5, 5, 0.92) 18%,
+            rgba(5, 5, 5, 0.60) 40%,
+            rgba(5, 5, 5, 0.22) 65%,
+            #ffffff 100%
         );
 
     pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   REMOVE OLD PROJECT GLOW
+========================================================= */
+
+#projects::after,
+.projects::after {
+    display: none;
+}
+
+
+/* =========================================================
+   PROJECT CONTENT ABOVE TRANSITION
+========================================================= */
+
+#projects > *,
+.projects > * {
+    position: relative;
+    z-index: 2;
 }
 
 
@@ -586,7 +655,8 @@ h2 {
 
 
 /* =========================================================
-   PROJECT CARDS — PREMIUM BLACK GLASS
+   PROJECT CARDS
+   SAME AESTHETIC AS SKILLS
 ========================================================= */
 
 .project-card {
@@ -603,102 +673,54 @@ h2 {
 
     border:
         1px solid
-        rgba(255, 255, 255, 0.12);
+        rgba(255, 255, 255, 0.13);
 
     border-radius: var(--radius-md);
 
-    background:
-        linear-gradient(
-            145deg,
-            #151519 0%,
-            #09090b 48%,
-            #050505 100%
-        );
+    /*
+       Flat dark surface instead of glass/gradient.
+       This intentionally matches the skill pills.
+    */
+    background: #0d0d0f;
 
     color: white;
 
     box-shadow:
-        0 25px 65px
-        rgba(0, 0, 0, 0.18);
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.06);
 
     transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 
 /* =========================================================
-   CARD BLUE GLOW
+   REMOVE OLD CARD GLOW
 ========================================================= */
 
-.project-card::before {
-    content: "";
-
-    position: absolute;
-
-    top: -150px;
-    right: -120px;
-
-    width: 300px;
-    height: 300px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(49, 85, 255, 0.22),
-            rgba(118, 87, 255, 0.08) 40%,
-            transparent 70%
-        );
-
-    pointer-events: none;
-}
-
-
-/* =========================================================
-   CARD TOP ACCENT
-========================================================= */
-
+.project-card::before,
 .project-card::after {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 10%;
-    right: 10%;
-
-    height: 1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(49, 85, 255, 0.8),
-            rgba(118, 87, 255, 0.65),
-            rgba(25, 184, 201, 0.6),
-            transparent
-        );
+    display: none;
 }
 
 
 /* =========================================================
-   CARD HOVER
+   PROJECT CARD HOVER
 ========================================================= */
 
 .project-card:hover {
-    transform: translateY(-7px);
+    transform: translateY(-5px);
 
     border-color:
-        rgba(49, 85, 255, 0.45);
+        rgba(49, 85, 255, 0.55);
 
     box-shadow:
-        0 35px 80px
-        rgba(0, 0, 0, 0.25),
-        0 0 35px
-        rgba(49, 85, 255, 0.08);
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.08),
+        0 15px 35px
+        rgba(0, 0, 0, 0.18);
 }
 
 
@@ -731,7 +753,7 @@ h2 {
 
     margin-bottom: 14px;
 
-    color: white;
+    color: #ffffff;
 
     font-size: 24px;
     font-weight: 700;
@@ -780,6 +802,7 @@ h2 {
 
 .project-card a:hover {
     color: #ffffff;
+
     transform: translateX(4px);
 }
 
@@ -790,14 +813,70 @@ h2 {
 
 #skills,
 .skills-section {
+    position: relative;
+
     max-width: none;
 
     background: #050505;
     color: white;
 
+    /*
+       Extra top space allows the white → black
+       transition to sit naturally above the content.
+    */
+    padding-top: 145px;
+
     padding-left: max(30px, calc((100vw - 1140px) / 2));
     padding-right: max(30px, calc((100vw - 1140px) / 2));
 }
+
+
+/* =========================================================
+   PROJECTS → SKILLS TRANSITION
+========================================================= */
+
+#skills::before,
+.skills-section::before {
+    content: "";
+
+    position: absolute;
+
+    top: calc(var(--transition-height) * -1);
+    left: 0;
+    right: 0;
+
+    height: var(--transition-height);
+
+    background:
+        linear-gradient(
+            to bottom,
+            #ffffff 0%,
+            rgba(255, 255, 255, 0.92) 18%,
+            rgba(255, 255, 255, 0.60) 40%,
+            rgba(255, 255, 255, 0.22) 65%,
+            #050505 100%
+        );
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   SKILLS CONTENT ABOVE TRANSITION
+========================================================= */
+
+#skills > *,
+.skills-section > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   SKILLS HEADINGS
+========================================================= */
 
 #skills h2,
 .skills-section h2 {
@@ -839,12 +918,7 @@ h2 {
 
     border-radius: 999px;
 
-    background:
-        linear-gradient(
-            135deg,
-            #17171a,
-            #0b0b0d
-        );
+    background: #0d0d0f;
 
     color: #e7e7ea;
 
@@ -882,12 +956,16 @@ h2 {
 
 #contact,
 .contact {
+    position: relative;
+
     background: #ffffff;
+
+    padding-top: 145px;
 }
 
 
 /* =========================================================
-   CONTACT GRADIENT ACCENT
+   SKILLS → CONTACT TRANSITION
 ========================================================= */
 
 #contact::before,
@@ -896,21 +974,41 @@ h2 {
 
     position: absolute;
 
-    top: 0;
-    left: 8%;
-    right: 8%;
+    top: calc(var(--transition-height) * -1);
+    left: 0;
+    right: 0;
 
-    height: 1px;
+    height: var(--transition-height);
 
     background:
-        var(--accent-gradient);
+        linear-gradient(
+            to bottom,
+            #050505 0%,
+            rgba(5, 5, 5, 0.92) 18%,
+            rgba(5, 5, 5, 0.60) 40%,
+            rgba(5, 5, 5, 0.22) 65%,
+            #ffffff 100%
+        );
 
-    opacity: 0.45;
+    pointer-events: none;
+
+    z-index: 0;
 }
 
 
 /* =========================================================
-   CONTACT PANEL — GLASS
+   CONTACT CONTENT ABOVE TRANSITION
+========================================================= */
+
+#contact > *,
+.contact > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   CONTACT PANEL
 ========================================================= */
 
 .contact-panel {
@@ -945,7 +1043,7 @@ h2 {
 
 
 /* =========================================================
-   CONTACT PANEL GRADIENT
+   CONTACT PANEL ACCENT
 ========================================================= */
 
 .contact-panel::before {
@@ -999,6 +1097,8 @@ h2 {
 ========================================================= */
 
 footer {
+    position: relative;
+
     max-width: none;
 
     margin: 0;
@@ -1016,6 +1116,47 @@ footer {
     color: #85858d;
 
     font-size: 13px;
+}
+
+
+/* =========================================================
+   CONTACT → FOOTER TRANSITION
+========================================================= */
+
+footer::before {
+    content: "";
+
+    position: absolute;
+
+    top: calc(var(--transition-height) * -1);
+    left: 0;
+    right: 0;
+
+    height: var(--transition-height);
+
+    background:
+        linear-gradient(
+            to bottom,
+            #ffffff 0%,
+            rgba(255, 255, 255, 0.92) 18%,
+            rgba(255, 255, 255, 0.60) 40%,
+            rgba(255, 255, 255, 0.22) 65%,
+            #050505 100%
+        );
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   FOOTER CONTENT
+========================================================= */
+
+footer > * {
+    position: relative;
+    z-index: 2;
 }
 
 
@@ -1053,6 +1194,15 @@ button:focus-visible {
 
 @media (max-width: 800px) {
 
+    :root {
+        --transition-height: 75px;
+    }
+
+
+    /* -----------------------------------------------
+       NAV
+    ----------------------------------------------- */
+
     .nav-links {
         display: none;
     }
@@ -1068,17 +1218,36 @@ button:focus-visible {
         height: 55px;
     }
 
+
+    /* -----------------------------------------------
+       HERO
+    ----------------------------------------------- */
+
     .hero {
         min-height: auto;
-        padding: 95px 20px 105px;
+
+        padding:
+            95px
+            20px
+            115px;
     }
 
     .hero::before {
         top: 55px;
         right: 20px;
+
         width: 65px;
         height: 3px;
     }
+
+    .hero::after {
+        height: 85px;
+    }
+
+
+    /* -----------------------------------------------
+       TYPOGRAPHY
+    ----------------------------------------------- */
 
     h1 {
         font-size:
@@ -1096,10 +1265,20 @@ button:focus-visible {
         letter-spacing: -1.2px;
     }
 
+
+    /* -----------------------------------------------
+       SECTIONS
+    ----------------------------------------------- */
+
     .section {
         padding-top: 80px;
         padding-bottom: 80px;
     }
+
+
+    /* -----------------------------------------------
+       BLACK SECTIONS
+    ----------------------------------------------- */
 
     #about,
     .about,
@@ -1107,20 +1286,53 @@ button:focus-visible {
     .skills-section {
         padding-left: 20px;
         padding-right: 20px;
+
+        padding-top: 115px;
+    }
+
+
+    /* -----------------------------------------------
+       PROJECTS
+    ----------------------------------------------- */
+
+    #projects,
+    .projects {
+        padding-top: 115px;
+        padding-bottom: 115px;
     }
 
     .project-grid {
         grid-template-columns: 1fr;
     }
 
+
+    /* -----------------------------------------------
+       BUTTONS
+    ----------------------------------------------- */
+
     .hero-buttons {
         flex-direction: column;
         align-items: flex-start;
     }
 
+
+    /* -----------------------------------------------
+       CONTACT
+    ----------------------------------------------- */
+
+    #contact,
+    .contact {
+        padding-top: 115px;
+    }
+
     .contact-panel {
         padding: 35px;
     }
+
+
+    /* -----------------------------------------------
+       FOOTER
+    ----------------------------------------------- */
 
     footer {
         padding-left: 20px;
@@ -1135,20 +1347,47 @@ button:focus-visible {
 
 @media (max-width: 480px) {
 
+    :root {
+        --transition-height: 60px;
+    }
+
+
+    /* -----------------------------------------------
+       HERO
+    ----------------------------------------------- */
+
     .hero {
-        padding: 80px 20px 90px;
+        padding:
+            80px
+            20px
+            100px;
     }
 
     .hero::before {
         top: 45px;
+
         width: 50px;
         height: 3px;
     }
+
+    .hero::after {
+        height: 70px;
+    }
+
+
+    /* -----------------------------------------------
+       SECTIONS
+    ----------------------------------------------- */
 
     .section {
         padding-left: 20px;
         padding-right: 20px;
     }
+
+
+    /* -----------------------------------------------
+       TYPOGRAPHY
+    ----------------------------------------------- */
 
     h1 {
         font-size:
@@ -1166,14 +1405,43 @@ button:focus-visible {
         line-height: 1.7;
     }
 
+
+    /* -----------------------------------------------
+       PROJECTS
+    ----------------------------------------------- */
+
+    #projects,
+    .projects {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
     .project-card {
         min-height: 275px;
+
         padding: 25px;
+
         border-radius: 14px;
+
+        background: #0d0d0f;
+
+        box-shadow:
+            inset 0 1px 0
+            rgba(255, 255, 255, 0.06);
     }
 
     .project-card h3 {
         font-size: 22px;
+    }
+
+
+    /* -----------------------------------------------
+       SKILLS
+    ----------------------------------------------- */
+
+    #skills,
+    .skills-section {
+        padding-top: 100px;
     }
 
     .skills {
@@ -1183,6 +1451,16 @@ button:focus-visible {
     .skills span {
         padding: 8px 13px;
         font-size: 13px;
+    }
+
+
+    /* -----------------------------------------------
+       CONTACT
+    ----------------------------------------------- */
+
+    #contact,
+    .contact {
+        padding-top: 100px;
     }
 
     .contact-panel {
