@@ -1,49 +1,22 @@
 /* =========================================================
    HR TECHNOLOGY PORTFOLIO
-   LIGHT EDITORIAL + GLASSMORPHISM
-========================================================= */
-
-
-/* =========================================================
-   DESIGN SYSTEM
+   BLACK / WHITE / BLUE PREMIUM EDITORIAL
 ========================================================= */
 
 :root {
-
-    /* -----------------------------------------------------
-       CORE
-    ----------------------------------------------------- */
-
     --white: #ffffff;
-    --off-white: #f7f8fa;
-    --surface: #ffffff;
-    --surface-soft: #f1f3f6;
+    --off-white: #f7f9fc;
 
-    --black: #0a0a0b;
-    --black-soft: #17181b;
+    --black: #050505;
+    --black-soft: #0d0d0f;
 
-    --text: #101114;
-    --text-secondary: #45484f;
-    --text-muted: #6d7179;
-
-    --border: #e4e6ea;
-    --border-dark: #d5d8de;
-
-
-    /* -----------------------------------------------------
-       ACCENT COLOURS
-    ----------------------------------------------------- */
+    --text: #111111;
+    --text-light: #f5f5f5;
+    --text-muted: #8d8d94;
 
     --blue: #3155ff;
-    --blue-light: #eef1ff;
-
     --violet: #7657ff;
     --cyan: #19b8c9;
-
-
-    /* -----------------------------------------------------
-       ACCENT GRADIENT
-    ----------------------------------------------------- */
 
     --accent-gradient:
         linear-gradient(
@@ -53,59 +26,14 @@
             #19b8c9 100%
         );
 
+    --border-light: rgba(0, 0, 0, 0.10);
+    --border-dark: rgba(255, 255, 255, 0.13);
 
-    /* -----------------------------------------------------
-       GLASSMORPHISM
-    ----------------------------------------------------- */
+    --shadow:
+        0 25px 70px rgba(0, 0, 0, 0.16);
 
-    --glass:
-        rgba(255, 255, 255, 0.68);
-
-    --glass-strong:
-        rgba(255, 255, 255, 0.84);
-
-    --glass-soft:
-        rgba(255, 255, 255, 0.54);
-
-    --glass-border:
-        rgba(20, 25, 35, 0.10);
-
-    --glass-border-hover:
-        rgba(49, 85, 255, 0.28);
-
-
-    /* -----------------------------------------------------
-       SHADOWS
-    ----------------------------------------------------- */
-
-    --shadow-sm:
-        0 4px 18px
-        rgba(20, 25, 35, 0.045);
-
-    --shadow-md:
-        0 14px 40px
-        rgba(20, 25, 35, 0.075);
-
-    --shadow-lg:
-        0 25px 70px
-        rgba(20, 25, 35, 0.12);
-
-    --glass-shadow:
-        0 18px 50px
-        rgba(20, 25, 35, 0.08);
-
-    --glass-shadow-hover:
-        0 28px 75px
-        rgba(20, 25, 35, 0.13);
-
-
-    /* -----------------------------------------------------
-       RADIUS
-    ----------------------------------------------------- */
-
-    --radius-sm: 8px;
-    --radius-md: 16px;
-    --radius-lg: 20px;
+    --radius-md: 18px;
+    --radius-lg: 24px;
 }
 
 
@@ -115,9 +43,7 @@
 
 * {
     box-sizing: border-box;
-
     margin: 0;
-
     padding: 0;
 }
 
@@ -126,7 +52,6 @@ html {
 }
 
 body {
-
     min-height: 100vh;
 
     font-family:
@@ -134,82 +59,40 @@ body {
         Helvetica,
         sans-serif;
 
-    background:
-        var(--white);
+    background: var(--white);
+    color: var(--text);
 
-    color:
-        var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
 
-    line-height:
-        1.6;
-
-    overflow-x:
-        hidden;
-
-    -webkit-font-smoothing:
-        antialiased;
-
-    text-rendering:
-        optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
-
-
-/* =========================================================
-   REMOVE OLD DECORATIVE BACKGROUND
-========================================================= */
-
-body::before,
-body::after {
-
-    display:
-        none;
-
-    content:
-        none;
-}
-
-
-/* =========================================================
-   TEXT SELECTION
-========================================================= */
 
 ::selection {
-
-    background:
-        var(--blue);
-
-    color:
-        #ffffff;
+    background: var(--blue);
+    color: white;
 }
 
 
 /* =========================================================
-   HEADER
+   HEADER — BLACK
 ========================================================= */
 
 header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 
-    position:
-        sticky;
-
-    top:
-        0;
-
-    z-index:
-        1000;
+    background: #050505;
 
     border-bottom:
         1px solid
-        rgba(20, 25, 35, 0.08);
+        rgba(255, 255, 255, 0.10);
 
-    background:
-        rgba(255, 255, 255, 0.88);
-
-    backdrop-filter:
-        blur(18px);
-
-    -webkit-backdrop-filter:
-        blur(18px);
+    box-shadow:
+        0 8px 30px
+        rgba(0, 0, 0, 0.16);
 }
 
 
@@ -218,27 +101,15 @@ header {
 ========================================================= */
 
 nav {
+    max-width: 1200px;
+    min-height: 76px;
 
-    max-width:
-        1200px;
+    margin: 0 auto;
+    padding: 10px 30px;
 
-    min-height:
-        76px;
-
-    margin:
-        0 auto;
-
-    padding:
-        14px 30px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 
@@ -247,200 +118,143 @@ nav {
 ========================================================= */
 
 .logo {
+    width: 150px;
+    height: 60px;
 
-    width:
-        150px;
-
-    height:
-        60px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
+    display: flex;
+    align-items: center;
 }
 
 .logo img {
+    width: 150px;
+    height: 60px;
 
-    display:
-        block;
-
-    width:
-        150px;
-
-    height:
-        60px;
-
-    object-fit:
-        contain;
+    object-fit: contain;
 }
 
 
 /* =========================================================
-   NAVIGATION LINKS
+   NAV LINKS — WHITE
 ========================================================= */
 
 .nav-links {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        34px;
+    display: flex;
+    align-items: center;
+    gap: 34px;
 }
 
 .nav-links a {
+    position: relative;
 
-    position:
-        relative;
+    color: #ffffff;
 
-    color:
-        var(--text-secondary);
+    text-decoration: none;
 
-    text-decoration:
-        none;
-
-    font-size:
-        14px;
-
-    font-weight:
-        600;
+    font-size: 14px;
+    font-weight: 600;
 
     transition:
         color 0.2s ease;
 }
 
 .nav-links a:hover {
-
-    color:
-        var(--blue);
+    color: #6f8cff;
 }
 
-
-/* ---------------------------------------------------------
-   NAV UNDERLINE
---------------------------------------------------------- */
-
 .nav-links a::after {
+    content: "";
 
-    content:
-        "";
+    position: absolute;
 
-    position:
-        absolute;
+    left: 0;
+    bottom: -8px;
 
-    left:
-        0;
+    width: 0;
+    height: 2px;
 
-    bottom:
-        -8px;
+    border-radius: 999px;
 
-    width:
-        0;
+    background: var(--accent-gradient);
 
-    height:
-        2px;
-
-    border-radius:
-        999px;
-
-    background:
-        var(--blue);
-
-    transition:
-        width 0.25s ease;
+    transition: width 0.25s ease;
 }
 
 .nav-links a:hover::after {
-
-    width:
-        100%;
+    width: 100%;
 }
 
 
 /* =========================================================
-   HERO
+   HERO — WHITE
 ========================================================= */
 
 .hero {
+    position: relative;
 
-    position:
-        relative;
+    max-width: 1200px;
+    min-height: 78vh;
 
-    max-width:
-        1200px;
+    margin: 0 auto;
+    padding: 125px 30px 135px;
 
-    min-height:
-        78vh;
+    display: flex;
+    align-items: center;
 
-    margin:
-        0 auto;
+    overflow: hidden;
 
-    padding:
-        125px 30px 135px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    overflow:
-        hidden;
+    background: #ffffff;
 }
 
 
 /* =========================================================
-   HERO ACCENT
-   Minimal colour detail — replaces the old rings
+   WHITE SECTION BLUE ACCENT
 ========================================================= */
 
 .hero::before {
+    content: "";
 
-    content:
-        "";
+    position: absolute;
 
-    position:
-        absolute;
+    top: 120px;
+    right: 30px;
 
-    top:
-        120px;
+    width: 90px;
+    height: 4px;
 
-    right:
-        30px;
+    border-radius: 999px;
 
-    width:
-        90px;
+    background: var(--accent-gradient);
 
-    height:
-        4px;
-
-    border-radius:
-        999px;
-
-    background:
-        var(--accent-gradient);
-
-    opacity:
-        0.9;
+    opacity: 0.9;
 }
 
 
 /* =========================================================
-   REMOVE HERO DECORATION
+   HERO SOFT GRADIENT GLOW
 ========================================================= */
 
 .hero::after {
+    content: "";
 
-    display:
-        none;
+    position: absolute;
 
-    content:
-        none;
+    width: 500px;
+    height: 500px;
+
+    right: -280px;
+    bottom: -300px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(49, 85, 255, 0.09),
+            rgba(118, 87, 255, 0.035) 45%,
+            transparent 70%
+        );
+
+    pointer-events: none;
 }
 
 
@@ -449,78 +263,46 @@ nav {
 ========================================================= */
 
 .hero-content {
+    position: relative;
+    z-index: 2;
 
-    position:
-        relative;
-
-    z-index:
-        2;
-
-    max-width:
-        900px;
+    max-width: 900px;
 }
 
 
 /* =========================================================
-   EYEBROW / SECTION LABEL
+   LABELS
 ========================================================= */
 
 .eyebrow,
 .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
 
-    display:
-        inline-flex;
+    margin-bottom: 22px;
 
-    align-items:
-        center;
+    color: var(--blue);
 
-    gap:
-        10px;
+    font-size: 12px;
+    font-weight: 800;
 
-    margin-bottom:
-        22px;
-
-    color:
-        var(--blue);
-
-    font-size:
-        12px;
-
-    font-weight:
-        800;
-
-    letter-spacing:
-        2.2px;
-
-    text-transform:
-        uppercase;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
 }
-
-
-/* ---------------------------------------------------------
-   LABEL DOT
---------------------------------------------------------- */
 
 .eyebrow::before,
 .section-label::before {
+    content: "";
 
-    content:
-        "";
+    width: 7px;
+    height: 7px;
 
-    width:
-        7px;
+    flex-shrink: 0;
 
-    height:
-        7px;
+    border-radius: 50%;
 
-    flex-shrink:
-        0;
-
-    border-radius:
-        50%;
-
-    background:
-        var(--blue);
+    background: var(--blue);
 }
 
 
@@ -529,15 +311,11 @@ nav {
 ========================================================= */
 
 h1 {
+    max-width: 900px;
 
-    max-width:
-        900px;
+    margin-bottom: 32px;
 
-    margin-bottom:
-        32px;
-
-    color:
-        var(--black);
+    color: #050505;
 
     font-size:
         clamp(
@@ -546,192 +324,712 @@ h1 {
             88px
         );
 
-    font-weight:
-        750;
+    font-weight: 750;
 
-    line-height:
-        0.98;
+    line-height: 0.98;
 
-    letter-spacing:
-        -4px;
+    letter-spacing: -4px;
 
-    text-wrap:
-        balance;
+    text-wrap: balance;
 }
 
 
 /* =========================================================
-   GRADIENT TEXT
-========================================================= */
-
-.gradient-text {
-
-    background:
-        var(--accent-gradient);
-
-    background-size:
-        100% auto;
-
-    background-position:
-        center;
-
-    -webkit-background-clip:
-        text;
-
-    background-clip:
-        text;
-
-    -webkit-text-fill-color:
-        transparent;
-
-    color:
-        transparent;
-}
-
-
-/* =========================================================
-   INTRODUCTION
+   INTRO
 ========================================================= */
 
 .intro {
+    max-width: 690px;
 
-    max-width:
-        690px;
+    color: #45484f;
 
-    color:
-        var(--text-secondary);
-
-    font-size:
-        19px;
-
-    line-height:
-        1.75;
+    font-size: 19px;
+    line-height: 1.75;
 }
 
 
 /* =========================================================
-   HERO BUTTONS
+   BUTTONS
 ========================================================= */
 
 .hero-buttons {
+    margin-top: 38px;
 
-    margin-top:
-        38px;
+    display: flex;
+    flex-wrap: wrap;
 
-    display:
-        flex;
-
-    flex-wrap:
-        wrap;
-
-    gap:
-        12px;
+    gap: 12px;
 }
 
-
-/* =========================================================
-   PRIMARY BUTTON
-========================================================= */
-
 .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    display:
-        inline-flex;
+    min-height: 50px;
 
-    align-items:
-        center;
+    padding: 0 22px;
 
-    justify-content:
-        center;
+    border: 1px solid #050505;
+    border-radius: 8px;
 
-    min-height:
-        50px;
+    background: #050505;
+    color: white;
 
-    padding:
-        0 22px;
+    text-decoration: none;
 
-    border:
-        1px solid
-        var(--black);
-
-    border-radius:
-        8px;
-
-    background:
-        var(--black);
-
-    color:
-        #ffffff;
-
-    text-decoration:
-        none;
-
-    font-size:
-        14px;
-
-    font-weight:
-        700;
+    font-size: 14px;
+    font-weight: 700;
 
     transition:
         transform 0.2s ease,
         background 0.2s ease,
-        border-color 0.2s ease,
         box-shadow 0.2s ease;
 }
 
 .button:hover {
+    transform: translateY(-2px);
 
-    transform:
-        translateY(-2px);
-
-    background:
-        var(--blue);
-
-    border-color:
-        var(--blue);
+    background: var(--blue);
+    border-color: var(--blue);
 
     box-shadow:
-        0 10px 25px
-        rgba(49, 85, 255, 0.18);
+        0 12px 30px
+        rgba(49, 85, 255, 0.25);
+}
+
+.button.secondary {
+    background: white;
+    color: #050505;
+    border-color: #d5d8de;
+}
+
+.button.secondary:hover {
+    color: var(--blue);
+    border-color: var(--blue);
 }
 
 
 /* =========================================================
-   SECONDARY BUTTON
+   ALL SECTIONS
 ========================================================= */
 
-.button.secondary {
+.section {
+    position: relative;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 110px 30px;
+
+    border-top: 1px solid transparent;
+}
+
+
+/* =========================================================
+   ABOUT — BLACK
+========================================================= */
+
+#about,
+.about {
+    max-width: none;
+
+    background: #050505;
+
+    color: white;
+
+    padding-left: max(30px, calc((100vw - 1140px) / 2));
+    padding-right: max(30px, calc((100vw - 1140px) / 2));
+}
+
+#about::before,
+.about::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 1px;
 
     background:
-        rgba(255, 255, 255, 0.72);
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(49, 85, 255, 0.5),
+            rgba(118, 87, 255, 0.3),
+            transparent
+        );
+}
 
-    color:
-        var(--text);
+
+/* =========================================================
+   ABOUT HEADING — WHITE
+========================================================= */
+
+#about h2,
+.about h2 {
+    color: #ffffff;
+}
+
+#about .section-label,
+.about .section-label {
+    color: #6f8cff;
+}
+
+#about > p:not(.section-label),
+.about > p:not(.section-label) {
+    color: #b9bac0;
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+========================================================= */
+
+h2 {
+    max-width: 800px;
+
+    margin-bottom: 25px;
+
+    color: #050505;
+
+    font-size:
+        clamp(
+            34px,
+            5vw,
+            48px
+        );
+
+    font-weight: 750;
+
+    line-height: 1.08;
+
+    letter-spacing: -2px;
+}
+
+
+/* =========================================================
+   SECTION BODY
+========================================================= */
+
+.section > p:not(.section-label) {
+    max-width: 720px;
+
+    color: #45484f;
+
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   PROJECTS — WHITE
+========================================================= */
+
+#projects,
+.projects {
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   PROJECT WHITE SECTION ACCENT
+========================================================= */
+
+#projects::after,
+.projects::after {
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    right: -250px;
+    top: 80px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(49, 85, 255, 0.07),
+            rgba(118, 87, 255, 0.025) 45%,
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   PROJECT GRID
+========================================================= */
+
+.project-grid {
+    position: relative;
+    z-index: 2;
+
+    margin-top: 50px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   PROJECT CARDS — PREMIUM BLACK GLASS
+========================================================= */
+
+.project-card {
+    position: relative;
+
+    min-height: 310px;
+
+    padding: 32px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
 
     border:
         1px solid
-        var(--border-dark);
+        rgba(255, 255, 255, 0.12);
 
-    backdrop-filter:
-        blur(12px);
-
-    -webkit-backdrop-filter:
-        blur(12px);
-}
-
-.button.secondary:hover {
+    border-radius: var(--radius-md);
 
     background:
-        var(--white);
+        linear-gradient(
+            145deg,
+            #151519 0%,
+            #09090b 48%,
+            #050505 100%
+        );
 
-    color:
-        var(--blue);
-
-    border-color:
-        var(--blue);
+    color: white;
 
     box-shadow:
-        none;
+        0 25px 65px
+        rgba(0, 0, 0, 0.18);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   CARD BLUE GLOW
+========================================================= */
+
+.project-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: -150px;
+    right: -120px;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(49, 85, 255, 0.22),
+            rgba(118, 87, 255, 0.08) 40%,
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CARD TOP ACCENT
+========================================================= */
+
+.project-card::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 10%;
+    right: 10%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(49, 85, 255, 0.8),
+            rgba(118, 87, 255, 0.65),
+            rgba(25, 184, 201, 0.6),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.project-card:hover {
+    transform: translateY(-7px);
+
+    border-color:
+        rgba(49, 85, 255, 0.45);
+
+    box-shadow:
+        0 35px 80px
+        rgba(0, 0, 0, 0.25),
+        0 0 35px
+        rgba(49, 85, 255, 0.08);
+}
+
+
+/* =========================================================
+   PROJECT NUMBER
+========================================================= */
+
+.project-number {
+    position: relative;
+    z-index: 2;
+
+    margin-bottom: 40px;
+
+    color: #85858d;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* =========================================================
+   PROJECT HEADING
+========================================================= */
+
+.project-card h3 {
+    position: relative;
+    z-index: 2;
+
+    margin-bottom: 14px;
+
+    color: white;
+
+    font-size: 24px;
+    font-weight: 700;
+
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+
+/* =========================================================
+   PROJECT TEXT
+========================================================= */
+
+.project-card p {
+    position: relative;
+    z-index: 2;
+
+    color: #b4b4bb;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   PROJECT LINK
+========================================================= */
+
+.project-card a {
+    position: relative;
+    z-index: 2;
+
+    margin-top: auto;
+    padding-top: 28px;
+
+    color: #6f8cff;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.project-card a:hover {
+    color: #ffffff;
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   SKILLS — BLACK
+========================================================= */
+
+#skills,
+.skills-section {
+    max-width: none;
+
+    background: #050505;
+    color: white;
+
+    padding-left: max(30px, calc((100vw - 1140px) / 2));
+    padding-right: max(30px, calc((100vw - 1140px) / 2));
+}
+
+#skills h2,
+.skills-section h2 {
+    color: white;
+}
+
+#skills .section-label,
+.skills-section .section-label {
+    color: #6f8cff;
+}
+
+#skills > p:not(.section-label),
+.skills-section > p:not(.section-label) {
+    color: #a9a9b0;
+}
+
+
+/* =========================================================
+   SKILL PILLS — DARK PREMIUM
+========================================================= */
+
+.skills {
+    margin-top: 38px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 11px;
+}
+
+.skills span {
+    position: relative;
+
+    padding: 10px 17px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.13);
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #17171a,
+            #0b0b0d
+        );
+
+    color: #e7e7ea;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.06);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.skills span:hover {
+    transform: translateY(-3px);
+
+    color: white;
+
+    border-color:
+        rgba(49, 85, 255, 0.55);
+
+    box-shadow:
+        0 10px 30px
+        rgba(49, 85, 255, 0.12);
+}
+
+
+/* =========================================================
+   CONTACT — WHITE
+========================================================= */
+
+#contact,
+.contact {
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   CONTACT GRADIENT ACCENT
+========================================================= */
+
+#contact::before,
+.contact::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 8%;
+    right: 8%;
+
+    height: 1px;
+
+    background:
+        var(--accent-gradient);
+
+    opacity: 0.45;
+}
+
+
+/* =========================================================
+   CONTACT PANEL — GLASS
+========================================================= */
+
+.contact-panel {
+    position: relative;
+
+    margin-top: 45px;
+
+    padding: 50px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(49, 85, 255, 0.16);
+
+    border-radius: var(--radius-lg);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.90),
+            rgba(238, 241, 255, 0.72)
+        );
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 25px 70px
+        rgba(20, 25, 35, 0.10);
+}
+
+
+/* =========================================================
+   CONTACT PANEL GRADIENT
+========================================================= */
+
+.contact-panel::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 8%;
+    right: 8%;
+
+    height: 2px;
+
+    background:
+        var(--accent-gradient);
+
+    opacity: 0.75;
+}
+
+
+/* =========================================================
+   CONTACT PANEL GLOW
+========================================================= */
+
+.contact-panel::after {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    right: -180px;
+    bottom: -180px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(25, 184, 201, 0.12),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   FOOTER — BLACK
+========================================================= */
+
+footer {
+    max-width: none;
+
+    margin: 0;
+
+    padding:
+        35px
+        max(30px, calc((100vw - 1140px) / 2));
+
+    background: #050505;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+
+    color: #85858d;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   FOOTER LINKS
+========================================================= */
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #6f8cff;
 }
 
 
@@ -741,650 +1039,11 @@ h1 {
 
 a:focus-visible,
 button:focus-visible {
-
     outline:
         3px solid
-        rgba(49, 85, 255, 0.30);
+        rgba(49, 85, 255, 0.45);
 
-    outline-offset:
-        4px;
-}
-
-
-/* =========================================================
-   SECTIONS
-========================================================= */
-
-.section {
-
-    position:
-        relative;
-
-    max-width:
-        1200px;
-
-    margin:
-        0 auto;
-
-    padding:
-        110px 30px;
-
-    border-top:
-        1px solid
-        var(--border);
-}
-
-
-/* =========================================================
-   SECTION HEADINGS
-========================================================= */
-
-h2 {
-
-    max-width:
-        800px;
-
-    margin-bottom:
-        25px;
-
-    color:
-        var(--black);
-
-    font-size:
-        clamp(
-            34px,
-            5vw,
-            48px
-        );
-
-    font-weight:
-        750;
-
-    line-height:
-        1.08;
-
-    letter-spacing:
-        -2px;
-}
-
-
-/* =========================================================
-   SECTION BODY TEXT
-========================================================= */
-
-.section > p:not(.section-label) {
-
-    max-width:
-        720px;
-
-    color:
-        var(--text-secondary);
-
-    font-size:
-        17px;
-
-    line-height:
-        1.75;
-}
-
-
-/* =========================================================
-   PROJECT GRID
-========================================================= */
-
-.project-grid {
-
-    margin-top:
-        50px;
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-    gap:
-        20px;
-}
-
-
-/* =========================================================
-   GLASSMORPHISM PROJECT CARDS
-========================================================= */
-
-.project-card {
-
-    position:
-        relative;
-
-    min-height:
-        310px;
-
-    padding:
-        32px;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    overflow:
-        hidden;
-
-    border:
-        1px solid
-        var(--glass-border);
-
-    border-radius:
-        var(--radius-md);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.82),
-            rgba(255, 255, 255, 0.52)
-        );
-
-    backdrop-filter:
-        blur(22px);
-
-    -webkit-backdrop-filter:
-        blur(22px);
-
-    box-shadow:
-        var(--glass-shadow);
-
-    transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease,
-        background 0.3s ease;
-}
-
-
-/* =========================================================
-   PROJECT CARD — TOP GLASS HIGHLIGHT
-========================================================= */
-
-.project-card::before {
-
-    content:
-        "";
-
-    position:
-        absolute;
-
-    top:
-        0;
-
-    left:
-        12%;
-
-    right:
-        12%;
-
-    height:
-        1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(49, 85, 255, 0.45),
-            rgba(118, 87, 255, 0.45),
-            rgba(25, 184, 201, 0.35),
-            transparent
-        );
-
-    opacity:
-        0.6;
-
-    pointer-events:
-        none;
-}
-
-
-/* =========================================================
-   PROJECT CARD — SOFT COLOUR WASH
-========================================================= */
-
-.project-card::after {
-
-    content:
-        "";
-
-    position:
-        absolute;
-
-    width:
-        220px;
-
-    height:
-        220px;
-
-    top:
-        -140px;
-
-    right:
-        -100px;
-
-    border-radius:
-        50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(49, 85, 255, 0.10),
-            rgba(118, 87, 255, 0.04) 45%,
-            transparent 72%
-        );
-
-    pointer-events:
-        none;
-
-    transition:
-        transform 0.4s ease,
-        opacity 0.4s ease;
-}
-
-
-/* =========================================================
-   PROJECT CARD — HOVER
-========================================================= */
-
-.project-card:hover {
-
-    transform:
-        translateY(-6px);
-
-    border-color:
-        var(--glass-border-hover);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.93),
-            rgba(248, 250, 255, 0.70)
-        );
-
-    box-shadow:
-        var(--glass-shadow-hover);
-}
-
-.project-card:hover::after {
-
-    transform:
-        scale(1.2);
-
-    opacity:
-        1;
-}
-
-
-/* =========================================================
-   PROJECT NUMBER
-========================================================= */
-
-.project-number {
-
-    margin-bottom:
-        40px;
-
-    color:
-        var(--text-muted);
-
-    font-size:
-        12px;
-
-    font-weight:
-        800;
-
-    letter-spacing:
-        1.5px;
-}
-
-
-/* =========================================================
-   PROJECT CARD HEADING
-========================================================= */
-
-.project-card h3 {
-
-    margin-bottom:
-        14px;
-
-    color:
-        var(--black);
-
-    font-size:
-        24px;
-
-    font-weight:
-        700;
-
-    line-height:
-        1.2;
-
-    letter-spacing:
-        -0.5px;
-}
-
-
-/* =========================================================
-   PROJECT CARD TEXT
-========================================================= */
-
-.project-card p {
-
-    color:
-        var(--text-secondary);
-
-    line-height:
-        1.7;
-}
-
-
-/* =========================================================
-   PROJECT LINKS
-========================================================= */
-
-.project-card a {
-
-    margin-top:
-        auto;
-
-    padding-top:
-        28px;
-
-    color:
-        var(--blue);
-
-    text-decoration:
-        none;
-
-    font-size:
-        14px;
-
-    font-weight:
-        700;
-
-    transition:
-        color 0.2s ease,
-        transform 0.2s ease;
-}
-
-.project-card a:hover {
-
-    color:
-        var(--violet);
-
-    transform:
-        translateX(4px);
-}
-
-
-/* =========================================================
-   SKILLS
-========================================================= */
-
-.skills {
-
-    margin-top:
-        38px;
-
-    display:
-        flex;
-
-    flex-wrap:
-        wrap;
-
-    gap:
-        11px;
-}
-
-
-/* =========================================================
-   GLASS SKILL PILLS
-========================================================= */
-
-.skills span {
-
-    position:
-        relative;
-
-    padding:
-        9px 16px;
-
-    border:
-        1px solid
-        rgba(20, 25, 35, 0.10);
-
-    border-radius:
-        999px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.78),
-            rgba(245, 247, 250, 0.58)
-        );
-
-    color:
-        var(--text-secondary);
-
-    font-size:
-        14px;
-
-    font-weight:
-        600;
-
-    box-shadow:
-        0 6px 20px
-        rgba(20, 25, 35, 0.045),
-
-        inset 0 1px 0
-        rgba(255, 255, 255, 0.8);
-
-    backdrop-filter:
-        blur(14px);
-
-    -webkit-backdrop-filter:
-        blur(14px);
-
-    transition:
-        transform 0.2s ease,
-        border-color 0.2s ease,
-        background 0.2s ease,
-        color 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-
-/* =========================================================
-   SKILL PILL — GLASS HIGHLIGHT
-========================================================= */
-
-.skills span::before {
-
-    content:
-        "";
-
-    position:
-        absolute;
-
-    top:
-        1px;
-
-    left:
-        18%;
-
-    right:
-        18%;
-
-    height:
-        1px;
-
-    background:
-        rgba(255, 255, 255, 0.9);
-
-    border-radius:
-        999px;
-
-    pointer-events:
-        none;
-}
-
-
-/* =========================================================
-   SKILL PILL — HOVER
-========================================================= */
-
-.skills span:hover {
-
-    transform:
-        translateY(-3px);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.92),
-            rgba(238, 241, 255, 0.78)
-        );
-
-    border-color:
-        rgba(49, 85, 255, 0.25);
-
-    color:
-        var(--blue);
-
-    box-shadow:
-        0 10px 28px
-        rgba(49, 85, 255, 0.10);
-}
-
-
-/* =========================================================
-   CONTACT SECTION
-========================================================= */
-
-.contact {
-
-    padding-bottom:
-        130px;
-}
-
-
-/* =========================================================
-   CONTACT BUTTON
-========================================================= */
-
-.contact .button {
-
-    margin-top:
-        28px;
-}
-
-
-/* =========================================================
-   GLASS CONTACT PANEL
-========================================================= */
-
-.contact-panel {
-
-    position:
-        relative;
-
-    margin-top:
-        45px;
-
-    padding:
-        50px;
-
-    overflow:
-        hidden;
-
-    border:
-        1px solid
-        var(--glass-border);
-
-    border-radius:
-        var(--radius-lg);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.82),
-            rgba(245, 247, 250, 0.62)
-        );
-
-    backdrop-filter:
-        blur(24px);
-
-    -webkit-backdrop-filter:
-        blur(24px);
-
-    box-shadow:
-        var(--glass-shadow);
-}
-
-
-/* =========================================================
-   CONTACT PANEL — ACCENT
-========================================================= */
-
-.contact-panel::before {
-
-    content:
-        "";
-
-    position:
-        absolute;
-
-    top:
-        0;
-
-    left:
-        10%;
-
-    right:
-        10%;
-
-    height:
-        2px;
-
-    background:
-        var(--accent-gradient);
-
-    opacity:
-        0.65;
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer {
-
-    max-width:
-        1200px;
-
-    margin:
-        0 auto;
-
-    padding:
-        30px;
-
-    border-top:
-        1px solid
-        var(--border);
-
-    color:
-        var(--text-muted);
-
-    font-size:
-        13px;
+    outline-offset: 4px;
 }
 
 
@@ -1394,90 +1053,34 @@ footer {
 
 @media (max-width: 800px) {
 
-
-    /* -----------------------------------------------------
-       NAVIGATION
-    ----------------------------------------------------- */
-
     .nav-links {
-
-        display:
-            none;
+        display: none;
     }
 
     nav {
-
-        min-height:
-            70px;
-
-        padding:
-            12px 20px;
+        min-height: 70px;
+        padding: 12px 20px;
     }
 
-
-    /* -----------------------------------------------------
-       LOGO
-    ----------------------------------------------------- */
-
-    .logo {
-
-        width:
-            125px;
-
-        height:
-            55px;
-    }
-
+    .logo,
     .logo img {
-
-        width:
-            125px;
-
-        height:
-            55px;
+        width: 125px;
+        height: 55px;
     }
-
-
-    /* -----------------------------------------------------
-       HERO
-    ----------------------------------------------------- */
 
     .hero {
-
-        min-height:
-            auto;
-
-        padding:
-            95px 20px 105px;
+        min-height: auto;
+        padding: 95px 20px 105px;
     }
-
-
-    /* -----------------------------------------------------
-       HERO ACCENT
-    ----------------------------------------------------- */
 
     .hero::before {
-
-        top:
-            55px;
-
-        right:
-            20px;
-
-        width:
-            65px;
-
-        height:
-            3px;
+        top: 55px;
+        right: 20px;
+        width: 65px;
+        height: 3px;
     }
 
-
-    /* -----------------------------------------------------
-       HEADING
-    ----------------------------------------------------- */
-
     h1 {
-
         font-size:
             clamp(
                 44px,
@@ -1485,137 +1088,69 @@ footer {
                 68px
             );
 
-        letter-spacing:
-            -2.5px;
+        letter-spacing: -2.5px;
     }
 
     h2 {
-
-        font-size:
-            36px;
-
-        letter-spacing:
-            -1.2px;
+        font-size: 36px;
+        letter-spacing: -1.2px;
     }
-
-
-    /* -----------------------------------------------------
-       INTRO
-    ----------------------------------------------------- */
-
-    .intro {
-
-        font-size:
-            18px;
-    }
-
-
-    /* -----------------------------------------------------
-       SECTIONS
-    ----------------------------------------------------- */
 
     .section {
-
-        padding-top:
-            80px;
-
-        padding-bottom:
-            80px;
+        padding-top: 80px;
+        padding-bottom: 80px;
     }
 
-
-    /* -----------------------------------------------------
-       PROJECT GRID
-    ----------------------------------------------------- */
+    #about,
+    .about,
+    #skills,
+    .skills-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 
     .project-grid {
-
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
     }
-
-
-    /* -----------------------------------------------------
-       BUTTONS
-    ----------------------------------------------------- */
 
     .hero-buttons {
-
-        flex-direction:
-            column;
-
-        align-items:
-            flex-start;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-
-    /* -----------------------------------------------------
-       CONTACT PANEL
-    ----------------------------------------------------- */
-
     .contact-panel {
+        padding: 35px;
+    }
 
-        padding:
-            35px;
+    footer {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }
 
 
 /* =========================================================
-   SMALL MOBILE
+   MOBILE
 ========================================================= */
 
 @media (max-width: 480px) {
 
-
-    /* -----------------------------------------------------
-       HERO
-    ----------------------------------------------------- */
-
     .hero {
-
-        padding:
-            80px 20px 90px;
+        padding: 80px 20px 90px;
     }
-
-
-    /* -----------------------------------------------------
-       HERO ACCENT
-    ----------------------------------------------------- */
 
     .hero::before {
-
-        top:
-            45px;
-
-        width:
-            50px;
-
-        height:
-            3px;
+        top: 45px;
+        width: 50px;
+        height: 3px;
     }
-
-
-    /* -----------------------------------------------------
-       SECTIONS
-    ----------------------------------------------------- */
 
     .section {
-
-        padding-left:
-            20px;
-
-        padding-right:
-            20px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
-
-    /* -----------------------------------------------------
-       HEADING
-    ----------------------------------------------------- */
-
     h1 {
-
         font-size:
             clamp(
                 40px,
@@ -1623,84 +1158,36 @@ footer {
                 56px
             );
 
-        letter-spacing:
-            -2px;
+        letter-spacing: -2px;
     }
-
-
-    /* -----------------------------------------------------
-       INTRO
-    ----------------------------------------------------- */
 
     .intro {
-
-        font-size:
-            17px;
-
-        line-height:
-            1.7;
+        font-size: 17px;
+        line-height: 1.7;
     }
-
-
-    /* -----------------------------------------------------
-       PROJECT CARD
-    ----------------------------------------------------- */
 
     .project-card {
-
-        min-height:
-            275px;
-
-        padding:
-            25px;
-
-        border-radius:
-            14px;
+        min-height: 275px;
+        padding: 25px;
+        border-radius: 14px;
     }
-
-
-    /* -----------------------------------------------------
-       PROJECT HEADING
-    ----------------------------------------------------- */
 
     .project-card h3 {
-
-        font-size:
-            22px;
+        font-size: 22px;
     }
 
-
-    /* -----------------------------------------------------
-       SKILLS
-    ----------------------------------------------------- */
-
     .skills {
-
-        gap:
-            8px;
+        gap: 8px;
     }
 
     .skills span {
-
-        padding:
-            8px 13px;
-
-        font-size:
-            13px;
+        padding: 8px 13px;
+        font-size: 13px;
     }
 
-
-    /* -----------------------------------------------------
-       CONTACT
-    ----------------------------------------------------- */
-
     .contact-panel {
-
-        padding:
-            28px;
-
-        border-radius:
-            14px;
+        padding: 28px;
+        border-radius: 14px;
     }
 }
 
@@ -1712,25 +1199,15 @@ footer {
 @media (prefers-reduced-motion: reduce) {
 
     html {
-
-        scroll-behavior:
-            auto;
+        scroll-behavior: auto;
     }
 
     *,
     *::before,
     *::after {
-
-        animation-duration:
-            0.01ms !important;
-
-        animation-iteration-count:
-            1 !important;
-
-        transition-duration:
-            0.01ms !important;
-
-        scroll-behavior:
-            auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }
