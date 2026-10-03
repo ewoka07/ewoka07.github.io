@@ -1,7 +1,76 @@
 /* =========================================================
    HR TECH PORTFOLIO
-   DARK EDITORIAL + GLASSMORPHISM
+   CLEAN EDITORIAL / MODERN TECHNOLOGY
 ========================================================= */
+
+
+/* =========================================================
+   DESIGN SYSTEM
+========================================================= */
+
+:root {
+
+    /* -----------------------------------------------------
+       FOUNDATION
+    ----------------------------------------------------- */
+
+    --white: #ffffff;
+    --off-white: #f7f8fa;
+    --surface: #ffffff;
+    --surface-soft: #f1f3f6;
+
+    --black: #0a0a0b;
+    --black-soft: #17181b;
+
+    --text: #101114;
+    --text-secondary: #45484f;
+    --text-muted: #6d7179;
+
+    --border: #e4e6ea;
+    --border-dark: #d5d8de;
+
+
+    /* -----------------------------------------------------
+       ACCENTS
+    ----------------------------------------------------- */
+
+    --blue: #3155ff;
+    --blue-light: #eef1ff;
+
+    --violet: #7657ff;
+    --cyan: #19b8c9;
+
+    --accent-gradient:
+        linear-gradient(
+            90deg,
+            #3155ff 0%,
+            #7657ff 55%,
+            #19b8c9 100%
+        );
+
+
+    /* -----------------------------------------------------
+       SHADOWS
+    ----------------------------------------------------- */
+
+    --shadow-sm:
+        0 2px 10px rgba(16, 17, 20, 0.04);
+
+    --shadow-md:
+        0 12px 35px rgba(16, 17, 20, 0.07);
+
+    --shadow-lg:
+        0 24px 70px rgba(16, 17, 20, 0.10);
+
+
+    /* -----------------------------------------------------
+       RADIUS
+    ----------------------------------------------------- */
+
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+}
 
 
 /* =========================================================
@@ -19,6 +88,7 @@ html {
 }
 
 body {
+
     min-height: 100vh;
 
     font-family:
@@ -26,160 +96,44 @@ body {
         Helvetica,
         sans-serif;
 
+    background: var(--white);
+
     color: var(--text);
 
     line-height: 1.6;
 
     overflow-x: hidden;
 
-    background:
-        radial-gradient(
-            ellipse 700px 500px at -10% 5%,
-            rgba(116, 76, 255, 0.075),
-            transparent 70%
-        ),
-        radial-gradient(
-            ellipse 650px 500px at 110% 95%,
-            rgba(32, 200, 216, 0.06),
-            transparent 70%
-        ),
-        var(--black);
-
-    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 
 /* =========================================================
-   DESIGN SYSTEM
-========================================================= */
-
-:root {
-
-    /* -----------------------------------------------------
-       BLACK / WHITE FOUNDATION
-    ----------------------------------------------------- */
-
-    --black: #08090b;
-    --black-soft: #0c0d10;
-    --black-card: #111317;
-
-    --white: #ffffff;
-
-    --text: #f7f7f7;
-
-    --muted: rgba(255, 255, 255, 0.68);
-
-    --muted-light: rgba(255, 255, 255, 0.82);
-
-
-    /* -----------------------------------------------------
-       ACCENT COLOURS
-
-       Purple → Pink → Orange → Yellow → Cyan
-    ----------------------------------------------------- */
-
-    --purple: #744cff;
-    --pink: #c84cff;
-    --orange: #ff8a3d;
-    --yellow: #e9c75f;
-    --cyan: #20c8d8;
-
-
-    /* -----------------------------------------------------
-       GLASS SYSTEM
-    ----------------------------------------------------- */
-
-    --glass:
-        rgba(255, 255, 255, 0.045);
-
-    --glass-light:
-        rgba(255, 255, 255, 0.065);
-
-    --glass-hover:
-        rgba(255, 255, 255, 0.075);
-
-    --glass-border:
-        rgba(255, 255, 255, 0.13);
-
-    --glass-border-hover:
-        rgba(255, 255, 255, 0.25);
-
-
-    /* -----------------------------------------------------
-       ACCENT GRADIENT
-    ----------------------------------------------------- */
-
-    --accent-gradient:
-        linear-gradient(
-            90deg,
-            var(--purple) 0%,
-            var(--pink) 27%,
-            var(--orange) 52%,
-            var(--yellow) 72%,
-            var(--cyan) 100%
-        );
-}
-
-
-/* =========================================================
-   SUBTLE BACKGROUND TEXTURE
+   REMOVE OLD DECORATIVE BACKGROUND
 ========================================================= */
 
 body::before {
+    display: none;
+}
 
-    content: "";
-
-    position: fixed;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    z-index: 9999;
-
-    opacity: 0.018;
-
-    background-image:
-        linear-gradient(
-            rgba(255, 255, 255, 0.8) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(255, 255, 255, 0.8) 1px,
-            transparent 1px
-        );
-
-    background-size: 90px 90px;
-
-    mask-image:
-        linear-gradient(
-            to bottom,
-            black,
-            transparent 90%
-        );
-
-    -webkit-mask-image:
-        linear-gradient(
-            to bottom,
-            black,
-            transparent 90%
-        );
+body::after {
+    display: none;
 }
 
 
 /* =========================================================
-   TEXT SELECTION
+   SELECTION
 ========================================================= */
 
 ::selection {
-    background: rgba(116, 76, 255, 0.40);
+    background: var(--blue);
     color: #ffffff;
 }
 
 
 /* =========================================================
-   NAVIGATION
+   HEADER
 ========================================================= */
 
 header {
@@ -190,19 +144,23 @@ header {
 
     z-index: 1000;
 
-    border-bottom:
-        1px solid rgba(255, 255, 255, 0.09);
-
     background:
-        rgba(8, 9, 11, 0.86);
+        rgba(255, 255, 255, 0.94);
+
+    border-bottom:
+        1px solid var(--border);
 
     backdrop-filter:
-        blur(20px);
+        blur(16px);
 
     -webkit-backdrop-filter:
-        blur(20px);
+        blur(16px);
 }
 
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
 nav {
 
@@ -211,8 +169,9 @@ nav {
     margin: 0 auto;
 
     padding:
-        16px
-        30px;
+        14px 30px;
+
+    min-height: 76px;
 
     display: flex;
 
@@ -230,7 +189,7 @@ nav {
 
     width: 150px;
 
-    height: 80px;
+    height: 60px;
 
     display: flex;
 
@@ -243,7 +202,7 @@ nav {
 
     width: 150px;
 
-    height: 80px;
+    height: 60px;
 
     object-fit: contain;
 }
@@ -259,7 +218,7 @@ nav {
 
     align-items: center;
 
-    gap: 32px;
+    gap: 34px;
 }
 
 .nav-links a {
@@ -267,16 +226,22 @@ nav {
     position: relative;
 
     color:
-        rgba(255, 255, 255, 0.72);
+        var(--text-secondary);
 
     text-decoration: none;
 
     font-size: 14px;
 
-    font-weight: 500;
+    font-weight: 600;
 
     transition:
-        color 0.25s ease;
+        color 0.2s ease;
+}
+
+.nav-links a:hover {
+
+    color:
+        var(--blue);
 }
 
 .nav-links a::after {
@@ -287,22 +252,19 @@ nav {
 
     left: 0;
 
-    bottom: -7px;
+    bottom: -8px;
 
     width: 0;
 
-    height: 1px;
+    height: 2px;
+
+    border-radius: 99px;
 
     background:
-        var(--accent-gradient);
+        var(--blue);
 
     transition:
         width 0.25s ease;
-}
-
-.nav-links a:hover {
-
-    color: #ffffff;
 }
 
 .nav-links a:hover::after {
@@ -326,9 +288,7 @@ nav {
     margin: 0 auto;
 
     padding:
-        125px
-        30px
-        150px;
+        125px 30px 135px;
 
     display: flex;
 
@@ -339,7 +299,8 @@ nav {
 
 
 /* =========================================================
-   HERO — COLOUR LINES TOP
+   HERO — CLEAN ACCENT
+   Small modern colour detail instead of decorative lines
 ========================================================= */
 
 .hero::before {
@@ -348,89 +309,25 @@ nav {
 
     position: absolute;
 
-    width: 760px;
+    top: 120px;
 
-    height: 390px;
+    right: 30px;
 
-    top: -235px;
+    width: 90px;
 
-    left: -220px;
+    height: 4px;
 
-    border-radius: 50%;
+    border-radius: 99px;
 
     background:
-        repeating-radial-gradient(
-            ellipse at center,
+        var(--accent-gradient);
 
-            transparent 0 10px,
-
-            rgba(116, 76, 255, 0.80) 11px 12px,
-
-            rgba(200, 76, 255, 0.68) 13px 14px,
-
-            rgba(255, 138, 61, 0.55) 15px 16px,
-
-            rgba(233, 199, 95, 0.45) 17px 18px,
-
-            rgba(32, 200, 216, 0.40) 19px 20px,
-
-            transparent 21px 28px
-        );
-
-    transform:
-        rotate(-16deg);
-
-    opacity: 0.72;
-
-    pointer-events: none;
+    opacity: 0.9;
 }
-
-
-/* =========================================================
-   HERO — COLOUR LINES BOTTOM
-========================================================= */
 
 .hero::after {
 
-    content: "";
-
-    position: absolute;
-
-    width: 720px;
-
-    height: 360px;
-
-    right: -250px;
-
-    bottom: -210px;
-
-    border-radius: 50%;
-
-    background:
-        repeating-radial-gradient(
-            ellipse at center,
-
-            transparent 0 10px,
-
-            rgba(116, 76, 255, 0.45) 11px 12px,
-
-            rgba(200, 76, 255, 0.50) 13px 14px,
-
-            rgba(255, 138, 61, 0.55) 15px 16px,
-
-            rgba(233, 199, 95, 0.52) 17px 18px,
-
-            rgba(32, 200, 216, 0.70) 19px 20px,
-
-            transparent 21px 28px
-        );
-
-    transform:
-        rotate(-16deg);
-
-    opacity: 0.68;
-
-    pointer-events: none;
+    display: none;
 }
 
 
@@ -449,24 +346,50 @@ nav {
 
 
 /* =========================================================
-   EYEBROW / SECTION LABEL
+   EYEBROW
 ========================================================= */
 
 .eyebrow,
 .section-label {
 
-    margin-bottom: 20px;
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 22px;
 
     color:
-        rgba(255, 255, 255, 0.70);
+        var(--blue);
 
-    font-size: 13px;
+    font-size: 12px;
 
-    font-weight: 700;
+    font-weight: 800;
 
-    letter-spacing: 2.5px;
+    letter-spacing: 2.2px;
 
     text-transform: uppercase;
+}
+
+
+/* Small indicator beside labels */
+
+.eyebrow::before,
+.section-label::before {
+
+    content: "";
+
+    width: 7px;
+
+    height: 7px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background:
+        var(--blue);
 }
 
 
@@ -476,24 +399,31 @@ nav {
 
 h1 {
 
-    margin-bottom: 30px;
+    max-width: 900px;
 
-    color: #ffffff;
+    margin-bottom: 32px;
+
+    color:
+        var(--black);
 
     font-size:
         clamp(
-            48px,
-            8vw,
-            86px
+            52px,
+            7.5vw,
+            88px
         );
 
-    font-weight: 700;
+    font-weight:
+        750;
 
-    line-height: 0.98;
+    line-height:
+        0.98;
 
-    letter-spacing: -3px;
+    letter-spacing:
+        -4px;
 
-    text-shadow: none;
+    text-wrap:
+        balance;
 }
 
 
@@ -507,44 +437,41 @@ h1 {
         var(--accent-gradient);
 
     background-size:
-        200% auto;
+        100% auto;
 
     background-position:
-        left center;
+        center;
 
-    -webkit-background-clip: text;
+    -webkit-background-clip:
+        text;
 
-    background-clip: text;
+    background-clip:
+        text;
 
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color:
+        transparent;
 
-    color: transparent;
-
-    transition:
-        background-position 0.5s ease;
-}
-
-.gradient-text:hover {
-
-    background-position:
-        right center;
+    color:
+        transparent;
 }
 
 
 /* =========================================================
-   INTRO TEXT
+   INTRO
 ========================================================= */
 
 .intro {
 
-    max-width: 700px;
+    max-width: 690px;
 
     color:
-        var(--muted-light);
+        var(--text-secondary);
 
-    font-size: 19px;
+    font-size:
+        19px;
 
-    line-height: 1.7;
+    line-height:
+        1.75;
 }
 
 
@@ -554,13 +481,17 @@ h1 {
 
 .hero-buttons {
 
-    margin-top: 35px;
+    margin-top:
+        38px;
 
-    display: flex;
+    display:
+        flex;
 
-    flex-wrap: wrap;
+    flex-wrap:
+        wrap;
 
-    gap: 15px;
+    gap:
+        12px;
 }
 
 
@@ -570,43 +501,61 @@ h1 {
 
 .button {
 
-    display: inline-block;
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-height:
+        50px;
 
     padding:
-        14px
-        25px;
+        0 22px;
 
     border:
-        1px solid rgba(255, 255, 255, 0.12);
+        1px solid var(--black);
 
-    border-radius: 10px;
+    border-radius:
+        8px;
 
     background:
-        #ffffff;
+        var(--black);
 
     color:
-        #08090b;
+        #ffffff;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    font-weight: 700;
+    font-size:
+        14px;
+
+    font-weight:
+        700;
 
     transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        box-shadow 0.25s ease;
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .button:hover {
 
     transform:
-        translateY(-3px);
+        translateY(-2px);
 
     background:
-        #eeeeee;
+        var(--blue);
+
+    border-color:
+        var(--blue);
 
     box-shadow:
-        0 15px 40px rgba(0, 0, 0, 0.35);
+        0 10px 25px rgba(49, 85, 255, 0.18);
 }
 
 
@@ -617,43 +566,40 @@ h1 {
 .button.secondary {
 
     background:
-        rgba(255, 255, 255, 0.035);
+        var(--white);
 
     color:
-        #ffffff;
+        var(--text);
 
     border:
-        1px solid rgba(255, 255, 255, 0.20);
-
-    backdrop-filter:
-        blur(12px);
-
-    -webkit-backdrop-filter:
-        blur(12px);
+        1px solid var(--border-dark);
 }
 
 .button.secondary:hover {
 
     background:
-        rgba(255, 255, 255, 0.075);
-
-    border-color:
-        rgba(255, 255, 255, 0.38);
+        var(--off-white);
 
     color:
-        #ffffff;
+        var(--blue);
+
+    border-color:
+        var(--blue);
+
+    box-shadow:
+        none;
 }
 
 
 /* =========================================================
-   KEYBOARD ACCESSIBILITY
+   ACCESSIBILITY
 ========================================================= */
 
 a:focus-visible,
 button:focus-visible {
 
     outline:
-        2px solid var(--cyan);
+        3px solid rgba(49, 85, 255, 0.3);
 
     outline-offset:
         4px;
@@ -666,18 +612,20 @@ button:focus-visible {
 
 .section {
 
-    position: relative;
+    position:
+        relative;
 
-    max-width: 1200px;
+    max-width:
+        1200px;
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 
     padding:
-        100px
-        30px;
+        110px 30px;
 
     border-top:
-        1px solid rgba(255, 255, 255, 0.09);
+        1px solid var(--border);
 }
 
 
@@ -687,31 +635,35 @@ button:focus-visible {
 
 h2 {
 
-    margin-bottom: 25px;
+    max-width:
+        800px;
+
+    margin-bottom:
+        25px;
 
     color:
-        #ffffff;
+        var(--black);
 
     font-size:
-        42px;
+        clamp(34px, 5vw, 48px);
 
     font-weight:
-        700;
+        750;
 
     line-height:
-        1.15;
+        1.08;
 
     letter-spacing:
-        -1px;
+        -2px;
 }
 
 .section > p:not(.section-label) {
 
     max-width:
-        750px;
+        720px;
 
     color:
-        var(--muted);
+        var(--text-secondary);
 
     font-size:
         17px;
@@ -728,7 +680,7 @@ h2 {
 .project-grid {
 
     margin-top:
-        45px;
+        50px;
 
     display:
         grid;
@@ -742,7 +694,7 @@ h2 {
 
 
 /* =========================================================
-   GLASSMORPHISM PROJECT CARDS
+   PROJECT CARDS
 ========================================================= */
 
 .project-card {
@@ -751,10 +703,10 @@ h2 {
         relative;
 
     min-height:
-        300px;
+        310px;
 
     padding:
-        30px;
+        32px;
 
     display:
         flex;
@@ -766,49 +718,26 @@ h2 {
         hidden;
 
     border:
-        1px solid var(--glass-border);
+        1px solid var(--border);
 
     border-radius:
-        16px;
-
-    /* -----------------------------------------------------
-       DARK GLASS
-    ----------------------------------------------------- */
+        var(--radius-md);
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.075),
-            rgba(255, 255, 255, 0.025)
-        );
-
-    backdrop-filter:
-        blur(20px);
-
-    -webkit-backdrop-filter:
-        blur(20px);
-
-    /* -----------------------------------------------------
-       GLASS SHADOW
-    ----------------------------------------------------- */
+        var(--white);
 
     box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.35),
-
-        inset
-        0 1px 0
-        rgba(255, 255, 255, 0.05);
+        var(--shadow-sm);
 
     transition:
-        transform 0.30s ease,
-        border-color 0.30s ease,
-        background 0.30s ease,
-        box-shadow 0.30s ease;
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 
 /* =========================================================
-   GLASS CARD — TOP ACCENT LINE
+   PROJECT CARD ACCENT
 ========================================================= */
 
 .project-card::before {
@@ -822,96 +751,56 @@ h2 {
         0;
 
     left:
-        10%;
+        0;
 
-    right:
-        10%;
+    width:
+        100%;
 
     height:
-        1px;
+        3px;
 
     background:
-        linear-gradient(
-            90deg,
-            transparent,
-            var(--purple),
-            var(--pink),
-            var(--orange),
-            var(--cyan),
-            transparent
-        );
+        var(--accent-gradient);
 
     opacity:
-        0.45;
+        0;
 
-    pointer-events:
-        none;
+    transition:
+        opacity 0.25s ease;
 }
 
 
 /* =========================================================
-   GLASS CARD — VERY SUBTLE LIGHT
+   REMOVE OLD CARD GLOW
 ========================================================= */
 
 .project-card::after {
 
-    content: "";
-
-    position:
-        absolute;
-
-    width:
-        180px;
-
-    height:
-        180px;
-
-    top:
-        -100px;
-
-    right:
-        -100px;
-
-    border-radius:
-        50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(116, 76, 255, 0.07),
-            transparent 70%
-        );
-
-    pointer-events:
+    display:
         none;
 }
 
 
 /* =========================================================
-   GLASS CARD — HOVER
+   CARD HOVER
 ========================================================= */
 
 .project-card:hover {
 
     transform:
-        translateY(-6px);
+        translateY(-5px);
 
     border-color:
-        var(--glass-border-hover);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.095),
-            rgba(255, 255, 255, 0.035)
-        );
+        #d1d5dc;
 
     box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.45),
+        var(--shadow-lg);
+}
 
-        inset
-        0 1px 0
-        rgba(255, 255, 255, 0.08);
+.project-card:hover::before {
+
+    opacity:
+        1;
 }
 
 
@@ -922,19 +811,19 @@ h2 {
 .project-number {
 
     margin-bottom:
-        30px;
+        40px;
 
     color:
-        rgba(255, 255, 255, 0.48);
+        var(--text-muted);
 
     font-size:
-        14px;
+        12px;
 
     font-weight:
-        700;
+        800;
 
     letter-spacing:
-        1px;
+        1.5px;
 }
 
 
@@ -945,16 +834,22 @@ h2 {
 .project-card h3 {
 
     margin-bottom:
-        15px;
+        14px;
 
     color:
-        #ffffff;
+        var(--black);
 
     font-size:
         24px;
 
+    font-weight:
+        700;
+
     line-height:
         1.2;
+
+    letter-spacing:
+        -0.5px;
 }
 
 
@@ -965,7 +860,7 @@ h2 {
 .project-card p {
 
     color:
-        rgba(255, 255, 255, 0.66);
+        var(--text-secondary);
 
     line-height:
         1.7;
@@ -982,13 +877,16 @@ h2 {
         auto;
 
     padding-top:
-        25px;
+        28px;
 
     color:
-        rgba(255, 255, 255, 0.88);
+        var(--blue);
 
     text-decoration:
         none;
+
+    font-size:
+        14px;
 
     font-weight:
         700;
@@ -1001,7 +899,7 @@ h2 {
 .project-card a:hover {
 
     color:
-        var(--cyan);
+        var(--violet);
 
     transform:
         translateX(4px);
@@ -1015,7 +913,7 @@ h2 {
 .skills {
 
     margin-top:
-        35px;
+        38px;
 
     display:
         flex;
@@ -1024,43 +922,42 @@ h2 {
         wrap;
 
     gap:
-        12px;
+        10px;
 }
 
 
 /* =========================================================
-   GLASS SKILL PILLS
+   SKILL PILLS
 ========================================================= */
 
 .skills span {
 
     padding:
-        9px
-        15px;
+        9px 15px;
 
     border:
-        1px solid rgba(255, 255, 255, 0.12);
+        1px solid var(--border);
 
     border-radius:
         999px;
 
     background:
-        rgba(255, 255, 255, 0.035);
+        var(--white);
 
     color:
-        rgba(255, 255, 255, 0.78);
+        var(--text-secondary);
 
-    backdrop-filter:
-        blur(12px);
+    font-size:
+        14px;
 
-    -webkit-backdrop-filter:
-        blur(12px);
+    font-weight:
+        600;
 
     transition:
-        background 0.25s ease,
-        border-color 0.25s ease,
-        color 0.25s ease,
-        transform 0.25s ease;
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .skills span:hover {
@@ -1069,13 +966,13 @@ h2 {
         translateY(-2px);
 
     background:
-        rgba(116, 76, 255, 0.10);
+        var(--blue-light);
 
     border-color:
-        rgba(116, 76, 255, 0.42);
+        rgba(49, 85, 255, 0.25);
 
     color:
-        #ffffff;
+        var(--blue);
 }
 
 
@@ -1086,7 +983,7 @@ h2 {
 .contact {
 
     padding-bottom:
-        120px;
+        130px;
 }
 
 
@@ -1097,12 +994,12 @@ h2 {
 .contact .button {
 
     margin-top:
-        25px;
+        28px;
 }
 
 
 /* =========================================================
-   OPTIONAL CONTACT GLASS PANEL
+   CONTACT PANEL
 ========================================================= */
 
 .contact-panel {
@@ -1111,39 +1008,25 @@ h2 {
         relative;
 
     margin-top:
-        40px;
+        45px;
 
     padding:
-        45px;
+        50px;
 
     overflow:
         hidden;
 
     border:
-        1px solid var(--glass-border);
+        1px solid var(--border);
 
     border-radius:
-        18px;
+        var(--radius-lg);
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.065),
-            rgba(255, 255, 255, 0.025)
-        );
-
-    backdrop-filter:
-        blur(20px);
-
-    -webkit-backdrop-filter:
-        blur(20px);
+        var(--off-white);
 
     box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.35),
-
-        inset
-        0 1px 0
-        rgba(255, 255, 255, 0.05);
+        var(--shadow-md);
 }
 
 
@@ -1162,19 +1045,16 @@ h2 {
         0;
 
     left:
-        10%;
+        0;
 
-    right:
-        10%;
+    width:
+        100%;
 
     height:
-        1px;
+        4px;
 
     background:
         var(--accent-gradient);
-
-    opacity:
-        0.55;
 }
 
 
@@ -1194,13 +1074,13 @@ footer {
         30px;
 
     border-top:
-        1px solid rgba(255, 255, 255, 0.09);
+        1px solid var(--border);
 
     color:
-        rgba(255, 255, 255, 0.48);
+        var(--text-muted);
 
     font-size:
-        14px;
+        13px;
 }
 
 
@@ -1223,8 +1103,10 @@ footer {
     nav {
 
         padding:
-            12px
-            20px;
+            12px 20px;
+
+        min-height:
+            70px;
     }
 
 
@@ -1238,7 +1120,7 @@ footer {
             125px;
 
         height:
-            65px;
+            55px;
     }
 
     .logo img {
@@ -1247,7 +1129,7 @@ footer {
             125px;
 
         height:
-            65px;
+            55px;
     }
 
 
@@ -1261,50 +1143,24 @@ footer {
             auto;
 
         padding:
-            100px
-            20px
-            110px;
+            95px 20px 105px;
     }
 
 
     /* -----------------------------------------------------
-       HERO LINES
+       HERO ACCENT
     ----------------------------------------------------- */
 
     .hero::before {
 
-        width:
-            500px;
-
-        height:
-            280px;
-
         top:
-            -180px;
-
-        left:
-            -250px;
-
-        opacity:
-            0.55;
-    }
-
-    .hero::after {
-
-        width:
-            500px;
-
-        height:
-            260px;
+            55px;
 
         right:
-            -250px;
+            20px;
 
-        bottom:
-            -170px;
-
-        opacity:
-            0.50;
+        width:
+            65px;
     }
 
 
@@ -1316,22 +1172,22 @@ footer {
 
         font-size:
             clamp(
-                42px,
-                13vw,
-                64px
+                44px,
+                12vw,
+                68px
             );
 
         letter-spacing:
-            -1.5px;
+            -2.5px;
     }
 
     h2 {
 
         font-size:
-            34px;
+            36px;
 
         letter-spacing:
-            -0.7px;
+            -1.2px;
     }
 
 
@@ -1353,10 +1209,10 @@ footer {
     .section {
 
         padding-top:
-            75px;
+            80px;
 
         padding-bottom:
-            75px;
+            80px;
     }
 
 
@@ -1384,22 +1240,15 @@ footer {
             flex-start;
     }
 
-    .button {
-
-        padding:
-            13px
-            21px;
-    }
-
 
     /* -----------------------------------------------------
-       CONTACT PANEL
+       CONTACT
     ----------------------------------------------------- */
 
     .contact-panel {
 
         padding:
-            30px;
+            35px;
     }
 }
 
@@ -1418,9 +1267,24 @@ footer {
     .hero {
 
         padding:
-            85px
-            20px
-            90px;
+            80px 20px 90px;
+    }
+
+
+    /* -----------------------------------------------------
+       HERO ACCENT
+    ----------------------------------------------------- */
+
+    .hero::before {
+
+        top:
+            45px;
+
+        width:
+            50px;
+
+        height:
+            3px;
     }
 
 
@@ -1447,9 +1311,12 @@ footer {
         font-size:
             clamp(
                 40px,
-                14vw,
+                13.5vw,
                 56px
             );
+
+        letter-spacing:
+            -2px;
     }
 
 
@@ -1461,6 +1328,9 @@ footer {
 
         font-size:
             17px;
+
+        line-height:
+            1.7;
     }
 
 
@@ -1471,13 +1341,13 @@ footer {
     .project-card {
 
         min-height:
-            270px;
+            275px;
 
         padding:
-            24px;
+            25px;
 
         border-radius:
-            14px;
+            12px;
     }
 
 
@@ -1505,8 +1375,7 @@ footer {
     .skills span {
 
         padding:
-            8px
-            13px;
+            8px 13px;
 
         font-size:
             13px;
@@ -1520,7 +1389,7 @@ footer {
     .contact-panel {
 
         padding:
-            25px;
+            28px;
 
         border-radius:
             14px;
