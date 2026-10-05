@@ -1198,3 +1198,59 @@ button:focus-visible {
         scroll-behavior: auto !important;
     }
 }
+/* Project Evidence Gallery */
+
+.workflow-image {
+    margin-top: 30px;
+}
+
+.workflow-image img {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.image-caption {
+    margin-top: 12px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.evidence-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.evidence-item {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.evidence-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+.evidence-item h3 {
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+.evidence-item p {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .evidence-gallery {
+        grid-template-columns: 1fr;
+    }
+}
